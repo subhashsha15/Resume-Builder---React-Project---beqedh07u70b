@@ -1,0 +1,127 @@
+.template1 {
+    border: 3px solid grey;
+    width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    height: 1100px;
+}
+
+.template1-userName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 42px;
+    height: 200px;
+    background-color: #166b60;
+    padding-right: 110px;
+}
+
+.template1-left {
+    background-color: #404040;
+    width: 300px;
+    height: 68rem;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 30px;
+    padding: 100px 50px;
+    color: #66778f;
+}
+
+.template1-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.template1-profileImage {
+    border: 1px solid white;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: #cdcdcd;
+    text-align: center;
+    overflow: hidden;
+    /* padding-top: 25px; */
+}
+.template1-profileImage img{
+    object-fit: cover;
+}
+.contact-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    color: #404040;
+}
+
+.template1-left hr {
+    margin: 40px 0px;
+}
+
+.template1-education {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.template1-education h3 {
+    color: white;
+}
+
+.template1-right {
+    position: absolute;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+}
+
+.template1-user-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.template1-user-summary h3 {
+    font-size: 28px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.template1-right hr {
+    margin: 30px 0px;
+    border: 1px solid black;
+}
+
+.template1-user-Skills h3 {
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+.template1-user-Skills ul {
+    margin-left: 40px;
+}
+
+.template1-user-Skill-list {
+    display: flex;
+    gap: 50px;
+}
+
+.template1-user-WorkHistory h3 {
+    font-size: 28px;
+    text-transform: uppercase;
+}

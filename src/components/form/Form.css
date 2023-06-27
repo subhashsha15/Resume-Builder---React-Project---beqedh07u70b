@@ -1,0 +1,139 @@
+.form h3 {
+    text-transform: uppercase;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.form {
+    display: flex;
+}
+
+.form-container {
+    width: 1400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user-contact-information {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0px;
+    padding: 0px 250px 0px 280px;
+}
+
+.mantine-cboft7 {
+    width: 200%;
+}
+
+.mantine-cboft7:focus,
+.mantine-cboft7:focus-within,
+.mantine-1ix1d88:focus {
+    border-top-color: #ced4da;
+    border-right-color: #ced4da;
+    border-left-color: #ced4da;
+    border-bottom: 2px solid #ffa019;
+}
+
+.mantine-gszoqu:focus,
+.mantine-gszoqu:focus-within {
+    outline: none;
+    border-color: #ffa019;
+}
+
+.user-contact-information-items {
+    display: flex;
+    gap: 250px;
+}
+
+.user-contact-information-item {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 210px;
+}
+
+.social-media-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0px 680px 0px 280px;
+}
+
+.user-work-experience {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0px;
+    padding: 0px 680px 0px 280px;
+}
+
+.work-experience-dates {
+    display: flex;
+    gap: 100px;
+}
+
+.mantine-gszoqu {
+    width: 150%;
+}
+
+.mantine-1ix1d88 {
+    width: 200%;
+    height: 120px;
+}
+
+/* User-Projects */
+
+.user-projects {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    gap: 15px;
+    margin: 20px 0px;
+    padding: 0px 680px 0px 280px;
+}
+
+/* User-Education */
+.user-education {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0px;
+    padding: 0px 680px 0px 280px;
+}
+
+.education-dates {
+    display: flex;
+    gap: 90px;
+}
+
+/* achivements and interests*/
+.user-achievements,
+.user-interest {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0px;
+    padding: 0px 680px 0px 280px;
+}
+
+/* form buttons */
+.form-controll-buttons {
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.form-controll-buttons button {
+    font-size: 25px;
+    padding: 5px 25px;
+    border: none;
+    box-shadow: 2px 2px 2px 1px black;
+}
+
+.form-controll-buttons button:active {
+    translate: 2px 2px;
+    box-shadow: 1px 1px 0px 0px black;
+}

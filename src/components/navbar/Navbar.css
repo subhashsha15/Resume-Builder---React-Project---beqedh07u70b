@@ -1,0 +1,32 @@
+.navbar{
+    background-color: rgba(128, 128, 128, 0.099);
+    display: flex;
+    justify-content: center;
+}
+.navbar-container{
+    width: 1400px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 8px;
+}
+.logo-title{
+    font-size: 40px;
+    font-weight: 700;
+    color: gray;
+    text-shadow: 3px 3px 4px black;
+}
+.navbar-items-right{
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+    text-transform:capitalize;
+    font-family: sans-serif;
+    font-weight: 400;
+}
+.navbar-items-right span:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
