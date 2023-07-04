@@ -2,10 +2,11 @@ import React from 'react'
 import './Home.css';
 import { Link } from "react-router-dom";
 import Form from '../../components/form/Form';
+import Template2 from '../../components/templates/template2/Template2';
 const Home = () => {
     return (
         <>
-            <Form />
+            {/* <Form /> */}
             <div className="home">
                 <div className="home-featured1">
                     <div className="home-featured1-left">
@@ -76,6 +77,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <Template2/>
         </>
     )
 }

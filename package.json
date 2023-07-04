@@ -21,6 +21,7 @@
     "@tabler/icons-react": "^2.22.0",
     "dayjs": "^1.11.8",
     "embla-carousel-react": "^7.1.0",
+    "html2canvas": "^1.4.1",
     "jspdf": "^2.5.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

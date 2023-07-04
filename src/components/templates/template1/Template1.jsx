@@ -4,6 +4,8 @@ import { MdAlternateEmail, MdCall } from 'react-icons/md';
 import { ImLocation } from 'react-icons/im';
 import { IoIosPerson } from 'react-icons/io';
 const Template1 = (props) => {
+    const {componentRef}=props;
+    console.log("props==",props);
     const { 
         FirstName,
         LastName,
@@ -13,9 +15,6 @@ const Template1 = (props) => {
         Phone,
         Email,
         ProfilePhoto,
-        Github_Link,
-        LinkedIn,
-        Instagram,
         Position,
         CompanyName,
         Certificate,
@@ -23,22 +22,18 @@ const Template1 = (props) => {
         StartDate_Office,
         EndDate_Office,
         WorkExperience,
-        Project_title,
-        Project_GithubLink,
-        Project_DeployedLink,
-        ProjectDescription,
         Degree,
         FieldOfStudy,
         collegeName,
         StartDate_college,
         EndDate_college,
         Interests,
-        Achievements } = props.props;
+       } = props.props;
 
     return (
         <>
-            <div className="template1">
-                <div className="template1-userName">{FirstName} {LastName}</div>
+            <div className="template1" ref={componentRef}>
+                <div className="template1-userName">{FirstName?FirstName:""} {LastName}</div>
                 <div className="template1-left">
                     <div className="template1-contact">
                         <div className="template1-profileImage">

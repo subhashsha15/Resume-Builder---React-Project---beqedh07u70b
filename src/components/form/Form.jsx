@@ -7,51 +7,56 @@ import { Link } from "react-router-dom";
 import './Form.css';
 const Form = () => {
     const [userDetails, setUserDetails] = useState({
-        FirstName: "",
-        LastName: "",
-        City: "",
-        Country: "",
-        PinCode: "",
-        Phone: "",
-        Email: "",
+        FirstName:"",
+        LastName: "kumar",
+        City: "Gaya",
+        Country: "india",
+        PinCode: "823004",
+        Phone: "23136164644",
+        Email: "adf1345@gmail.com",
         ProfilePhoto: "",
-        Github_Link: "",
-        LinkedIn: "",
-        Instagram: "",
-        Position: "",
-        CompanyName: "",
+        Github_Link: "github link",
+        LinkedIn: "Linked link",
+        Instagram: "instagream link",
+        Position: "software developer",
+        CompanyName: "Google",
         Certificate: "",
-        Location: "",
+        Location: "USA",
         StartDate_Office: "",
         EndDate_Office: "",
-        WorkExperience: "",
-        Project_title: "",
-        Project_GithubLink: "",
-        Project_DeployedLink: "",
-        ProjectDescription: "",
-        Degree: "",
-        FieldOfStudy: "",
-        collegeName: "",
+        WorkExperience: "asjhdf sdafjhsgaf  sd fad sahf fsdashadf",
+        Project_title: "project tiltle",
+        Project_GithubLink: "project githublink",
+        Project_DeployedLink: "project deployed",
+        ProjectDescription: "project description",
+        Degree: "B.tech",
+        FieldOfStudy: "cicil engineer",
+        collegeName: "cochin colllege",
         StartDate_college: "",
         EndDate_college: "",
-        Interests: ["abc", "dhgs", "sdg", "sdagfg"],
-        Achievements: [],
+        Interests: ["1","2","3","4"],
+        Achievements: ["1","2","3","4"],
     })
     const handleFormInputs = (event) => {
         const value = event.target.value;
         const field = event.target.name;
-        if (field == "interest1" || field == "interest2" || field == "interest3" || field == "interest4") {
+        
+        if (field === "interest1" || field === "interest2" || field === "interest3" || field === "interest4") {
+            // console.log("interest")
+            // console.log(field)
             setUserDetails((prevState) => ({
                 ...prevState,
                 Interests: prevState.Interests.map((interest, index) => {
-                    if (field === `interest${index + 1}`) {
+                    // console.log(index);
+                    if (field == `interest${index + 1}`) {
+                        console.log("value==",value);
                         return value;
                     }
                     return interest;
                 })
             }));
         }
-        else if (field == "achievement1" || field == "achievement2" || field == "achievement3" || field == "achievement4") {
+        else if (field === "achievement1" || field === "achievement2" || field === "achievement3" || field === "achievement4") {
             setUserDetails((prevState) => ({
                 ...prevState,
                 Achievements: prevState.Achievements.map((achievement, index) => {
@@ -95,7 +100,6 @@ const Form = () => {
                                     placeholder="e.g. Saanvi"
                                     label="FIRST NAME"
                                     radius="xs"
-                                    withasteris="true"
                                     name="FirstName"
                                     value={userDetails.FirstName}
                                     onChange={handleFormInputs}
@@ -130,8 +134,6 @@ const Form = () => {
                                     placeholder="e.g. 110034"
                                     label="PIN CODE"
                                     radius="xs"
-                                    withasteris="true"
-                                    hidecontrols="true"
                                     type='number'
                                     name="PinCode"
                                     value={userDetails.PinCode}
@@ -141,7 +143,6 @@ const Form = () => {
                                     placeholder="e.g. +919933254487"
                                     label="PHONE"
                                     radius="xs"
-                                    withasteris="true"
                                     hidecontrols="true"
                                     type='number'
                                     name="Phone"
@@ -182,7 +183,6 @@ const Form = () => {
                             placeholder="LinkedIn"
                             label="LINKEDIN "
                             radius="xs"
-                            withasteris="true"
                             hidecontrols="true"
                             name="LinkedIn"
                             value={userDetails.LinkedIn}
@@ -255,7 +255,6 @@ const Form = () => {
                         <Textarea
                             placeholder="e.g. lorem ipsum lo ipsum lo ipsum lo"
                             label="Enter Work Description"
-                            withasteris="true"
                             name="WorkExperience"
                             value={userDetails.WorkExperience}
                             onChange={handleFormInputs}
@@ -267,7 +266,6 @@ const Form = () => {
                             placeholder="e.g. Twitter Clone"
                             label="PROJECT TITLE"
                             radius="xs"
-                            withasteris="true"
                             name="Project_title"
                             value={userDetails.Project_title}
                             onChange={handleFormInputs}
@@ -276,7 +274,6 @@ const Form = () => {
                             placeholder="Project Github Link"
                             label="GITHUB LINK"
                             radius="xs"
-                            withasteris="true"
                             name="Project_GithubLink"
                             value={userDetails.Project_GithubLink}
                             onChange={handleFormInputs}
@@ -285,7 +282,6 @@ const Form = () => {
                             placeholder="Deployed Link"
                             label="DEPLOYED LINK"
                             radius="xs"
-                            withasteris="true"
                             name="Project_DeployedLink"
                             value={userDetails.Project_DeployedLink}
                             onChange={handleFormInputs}
@@ -293,7 +289,6 @@ const Form = () => {
                         <Textarea
                             placeholder="e.g. lorem ipsum lo ipsum lo ipsum lo"
                             label="PROJECT DESCRIPTION"
-                            withasteris="true"
                             name="ProjectDescription"
                             value={userDetails.ProjectDescription}
                             onChange={handleFormInputs}
@@ -306,7 +301,6 @@ const Form = () => {
                             placeholder="e.g. B.tech"
                             radius="xs"
                             name="Degree"
-                            withasteris="true"
                             value={userDetails.Degree}
                             onChange={handleFormInputs}
                         />
@@ -315,15 +309,13 @@ const Form = () => {
                             placeholder="e.g. Civil Engineer"
                             radius="xs"
                             name="FieldOfStudy"
-                            withasteris="true"
                             value={userDetails.FieldOfStudy}
                             onChange={handleFormInputs}
                         />
                         <TextInput
-                            label="SCHOOL/COLLEGE NAME *"
+                            label="SCHOOL/COLLEGE NAME"
                             placeholder="e.g. Indian Institute of Technology,Roorkee"
                             radius="xs"
-                            withasteris="true"
                             name="collegeName"
                             value={userDetails.collegeName}
                             onChange={handleFormInputs}

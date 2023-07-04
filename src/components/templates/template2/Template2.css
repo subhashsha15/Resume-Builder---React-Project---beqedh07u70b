@@ -1,0 +1,37 @@
+.template2{
+    display: flex;
+    justify-content: center;
+    border: 1px solid red;
+}
+.template2-container{
+    width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.template2-container-top{
+    background-color: #cf001a;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 34px;
+}
+.template2-container-top span:First-child{
+    border: 1px solid white;
+    color: white;
+    padding: 2px 8px;
+    font-size: 32px;
+}
+.template2-container-top span:last-child{
+  color: #66778f;
+  font-style: italic;
+  text-shadow: 2px 2px 3px black;
+}
+.template2-container-bottom{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
