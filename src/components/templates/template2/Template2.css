@@ -1,15 +1,19 @@
-.template2{
+.template2 {
     display: flex;
     justify-content: center;
     border: 1px solid red;
 }
-.template2-container{
-    width: 1100px;
+
+.template2-container {
+    width: 1000px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    /* gap: 10px; */
+    box-shadow: 4px 4px 5px 3px #66778f;
+    border: 1px solid #66778f;
 }
-.template2-container-top{
+
+.template2-container-top {
     background-color: #cf001a;
     height: 200px;
     display: flex;
@@ -19,19 +23,107 @@
     gap: 10px;
     font-size: 34px;
 }
-.template2-container-top span:First-child{
+
+.template2-container-top span:First-child {
     border: 1px solid white;
     color: white;
     padding: 2px 8px;
     font-size: 32px;
 }
-.template2-container-top span:last-child{
-  color: #66778f;
-  font-style: italic;
-  text-shadow: 2px 2px 3px black;
+
+.template2-container-top span:last-child {
+    color: #66778f;
+    font-style: italic;
+    text-shadow: 2px 2px 3px black;
+    text-transform: uppercase;
 }
-.template2-container-bottom{
+
+.template2-container-bottom {
     display: flex;
-    justify-content: space-between;
-    padding: 20px;
+    gap: 10px;
+    padding: 0px 10px;
+    margin-bottom: 60px;
+}
+
+.template2-bottom-left {
+    max-width: 60%;
+    margin-top: 10px;
+}
+
+.template2-bottom-left hr {
+    margin: 30px 0px;
+}
+
+.template2-bottom-right {
+    flex: 2px;
+    background-color: #f5f5f5;
+}
+
+.template2-Professional-summary {
+    padding: 10px 0px;
+    line-height: 25px;
+    letter-spacing: 0.5px;
+}
+
+.template2-Professional-summary p {
+    color: #66778f;
+    margin-top: 20px;
+}
+
+.template2-container h3 {
+    font-style: italic;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 17px;
+    margin-bottom: 10px;
+    letter-spacing: .5px;
+    color: rgb(74, 74, 74);
+}
+
+.template2-Work-history {
+    display: flex;
+    flex-direction: column;
+    color: #66778f;
+}
+
+.template2-Work-history span:nth-child(2),
+.education-details span:nth-child(2) {
+    color: #66778f;
+    font-weight: 600;
+}
+
+.template2-bottom-right {
+    padding: 0px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.template2-User-contact-details {
+    padding-top: 10px;
+    color: #66778f;
+}
+
+.template2-user-contactItem {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 15px 0px;
+    letter-spacing: .9px;
+}
+
+.skills-details ul,
+.social-details ul {
+    padding-left: 25px;
+    color: #66778f;
+}
+
+.education-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.education-details span {
+    color: #66778f;
 }

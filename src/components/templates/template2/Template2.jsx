@@ -1,6 +1,6 @@
 import React from 'react'
 import './Template2.css';
-import { MdAlternateEmail, MdCall } from 'react-icons/md';
+import {MdEmail, MdCall } from 'react-icons/md';
 import { ImLocation } from 'react-icons/im';
 
 const Template2 = () => {
@@ -13,8 +13,8 @@ const Template2 = () => {
                         <span>Subhash Kumar</span>
                     </div>
                     <div className="template2-container-bottom">
-                        <div className="template2-container-bottom-left">
-                            <div className="Professional-summary">
+                        <div className="template2-bottom-left">
+                            <div className="template2-Professional-summary">
                                 <h3>Professional-summary</h3>
                                 <p>
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, voluptates!
@@ -25,7 +25,8 @@ const Template2 = () => {
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, voluptates!
                                 </p>
                             </div>
-                            <div className="Work-history">
+                            <hr />
+                            <div className="template2-Work-history">
                                 <h3>Work History</h3>
                                 <span>Company Name</span>
                                 <span>Address</span>
@@ -39,10 +40,10 @@ const Template2 = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="template2-container-bottom-right">
+                        <div className="template2-bottom-right">
                             <div className="template2-User-contact-details">
                                 <div className="template2-user-contactItem">
-                                    <sapn className='icon'><MdAlternateEmail /></sapn>
+                                    <sapn className='icon'><MdEmail /></sapn>
                                     <span>Email@gmail.com</span>
                                 </div>
                                 <div className="template2-user-contactItem">
@@ -54,6 +55,16 @@ const Template2 = () => {
                                     <span>Delhi,India 110084</span>
                                 </div>
                             </div>
+                            <hr />
+                            <div className="social-details">
+                                <h3>Social Links</h3>
+                                <ul>
+                                    <li>lorem</li>
+                                    <li>lorem</li>
+                                    <li>lorem</li>
+                                </ul>
+                            </div>
+                            <hr />
                             <div className="skills-details">
                                 <h3>Skills</h3>
                                 <ul>
@@ -64,9 +75,10 @@ const Template2 = () => {
                                     <li>lorem</li>
                                 </ul>
                             </div>
+                            <hr />
                             <div className="education-details">
                                 <h3>Education</h3>
-                                <h5>college name</h5>
+                                <span>Cochin university of science and technology</span>
                                 <span>address</span>
                                 <span>course</span>
                                 <span>branch</span>

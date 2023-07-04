@@ -3,6 +3,7 @@ import './Home.css';
 import { Link } from "react-router-dom";
 import Form from '../../components/form/Form';
 import Template2 from '../../components/templates/template2/Template2';
+import Template3 from '../../components/templates/template3/Template3';
 const Home = () => {
     return (
         <>
@@ -77,7 +78,8 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <Template2/>
+            {/* <Template2/> */}
+            <Template3/>
         </>
     )
 }
