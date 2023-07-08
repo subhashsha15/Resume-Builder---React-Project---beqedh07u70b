@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { TextInput } from '@mantine/core';
-import { DateInput } from '@mantine/dates';
-import { IconAt } from '@tabler/icons-react';
+import { MdEmail } from 'react-icons/md';
 import { Textarea } from '@mantine/core';
 import { Link } from "react-router-dom";
 import './Form.css';
-const Form = () => {
+
+
+const Form = (props) => {
     const [userDetails, setUserDetails] = useState({
-        FirstName:"",
+        FirstName: "Subhash",
         LastName: "kumar",
         City: "Gaya",
         Country: "india",
@@ -34,40 +35,37 @@ const Form = () => {
         collegeName: "cochin colllege",
         StartDate_college: "",
         EndDate_college: "",
-        Interests: ["1","2","3","4"],
-        Achievements: ["1","2","3","4"],
+        Interests: ["", "", "", "", ""],
+        Achievements: ["", "", "", "", ""],
     })
+
     const handleFormInputs = (event) => {
         const value = event.target.value;
         const field = event.target.name;
-        
-        if (field === "interest1" || field === "interest2" || field === "interest3" || field === "interest4") {
-            // console.log("interest")
-            // console.log(field)
+
+        if (field === "interest1" || field === "interest2" || field === "interest3" || field === "interest4" || field === "interest5") {
             setUserDetails((prevState) => ({
                 ...prevState,
                 Interests: prevState.Interests.map((interest, index) => {
-                    // console.log(index);
-                    if (field == `interest${index + 1}`) {
-                        console.log("value==",value);
-                        return value;
+                    if (field === `interest${index + 1}`) {
+                        interest = value;
                     }
                     return interest;
                 })
             }));
         }
-        else if (field === "achievement1" || field === "achievement2" || field === "achievement3" || field === "achievement4") {
+        if (field === "achievement1" || field === "achievement2" || field === "achievement3" || field === "achievement4" || field === "achievement5") {
             setUserDetails((prevState) => ({
                 ...prevState,
                 Achievements: prevState.Achievements.map((achievement, index) => {
                     if (field === `achievement${index + 1}`) {
-                        return value;
+                        achievement = value;
                     }
                     return achievement;
                 })
             }));
         }
-        else if (field == "ProfilePhoto") {
+        if (field == "ProfilePhoto") {
             const { files } = event.target;
             if (files) {
                 setUserDetails((prevState) => ({
@@ -76,16 +74,21 @@ const Form = () => {
                 }));
             }
         }
-        else {
-            setUserDetails((prevState) => ({
-                ...prevState,
-                [field]: value
-            }));
-        }
+
+        setUserDetails((prevState) => ({
+            ...prevState,
+            [field]: value
+        }));
+
     };
-    const handleClick = () => {
+
+    const handleSave = () => {
         window.localStorage.setItem('UserDetails', JSON.stringify(userDetails));
     }
+    // const handlePreview=()=>{
+    //     Selectedtemplate = JSON.parse(localStorage.getItem('SelectedTemplate'))
+    //     console.log(Selectedtemplate);
+    // }
     return (
         <>
             <div className="form">
@@ -150,7 +153,7 @@ const Form = () => {
                                     onChange={handleFormInputs}
                                 />
                                 <TextInput
-                                    icon={<IconAt />}
+                                    icon={<MdEmail />}
                                     label="EMAIL"
                                     placeholder="Your email"
                                     radius="xs"
@@ -233,18 +236,18 @@ const Form = () => {
                             onChange={handleFormInputs}
                         />
                         <div className="work-experience-dates">
-                            <DateInput
+                            <TextInput
                                 label="START DATE"
-                                placeholder='mm/dd/yyyy'
                                 type="date"
+                                placeholder='MM/DD/YYYY'
                                 name="StartDate_Office"
                                 maw={400}
                                 value={userDetails.StartDate_Office}
                                 onChange={handleFormInputs}
                             />
-                            <DateInput
+                            <TextInput
                                 label="END DATE"
-                                placeholder='mm/dd/yyyy'
+                                placeholder='MM/DD/YYYY'
                                 type="date"
                                 name="EndDate_Office"
                                 maw={400}
@@ -321,20 +324,20 @@ const Form = () => {
                             onChange={handleFormInputs}
                         />
                         <div className="education-dates">
-                            <DateInput
+                            <TextInput
                                 label="START DATE"
-                                placeholder='mm/dd/yyyy'
+                                placeholder='MM/DD/YYYY'
                                 type="date"
                                 name="StartDate_college"
                                 maw={400}
                                 value={userDetails.StartDate_college}
                                 onChange={handleFormInputs}
                             />
-                            <DateInput
+                            <TextInput
                                 label="END DATE"
-                                placeholder='mm/dd/yyyy'
+                                placeholder='MM/DD/YYYY'
                                 type="date"
-                                name="EndDate_collegee"
+                                name="EndDate_college"
                                 maw={400}
                                 value={userDetails.EndDate_college}
                                 onChange={handleFormInputs}
@@ -371,6 +374,13 @@ const Form = () => {
                             value={userDetails.Interests[3]}
                             onChange={handleFormInputs}
                         />
+                        <TextInput
+                            placeholder="interest5"
+                            radius="xs"
+                            name="interest5"
+                            value={userDetails.Interests[4]}
+                            onChange={handleFormInputs}
+                        />
                     </div>
                     <div className="user-achievements">
                         <h3>Achievements</h3>
@@ -378,35 +388,42 @@ const Form = () => {
                             placeholder="achievement1"
                             radius="xs"
                             name="achievement1"
-                            value={userDetails.achievement1}
+                            value={userDetails.Achievements[0]}
                             onChange={handleFormInputs}
                         />
                         <TextInput
                             placeholder="achievement2"
                             radius="xs"
                             name="achievement2"
-                            value={userDetails.achievement2}
+                            value={userDetails.Achievements[1]}
                             onChange={handleFormInputs}
                         />
                         <TextInput
                             placeholder="achievement3"
                             radius="xs"
                             name="achievement3"
-                            value={userDetails.achievement3}
+                            value={userDetails.Achievements[2]}
                             onChange={handleFormInputs}
                         />
                         <TextInput
                             placeholder="achievement4"
                             radius="xs"
                             name="achievement4"
-                            value={userDetails.achievement4}
+                            value={userDetails.Achievements[3]}
+                            onChange={handleFormInputs}
+                        />
+                        <TextInput
+                            placeholder="achievement5"
+                            radius="xs"
+                            name="achievement5"
+                            value={userDetails.Achievements[4]}
                             onChange={handleFormInputs}
                         />
                     </div>
-                    <div className="form-controll-buttons" onClick={handleClick}>
-                        <button id='SaveButton'>Save</button>
-                        <Link to="/templates">
-                            <button id='PreviewButton'>Preview</button>
+                    <div className="form-controll-buttons">
+                        <button id='SaveButton' onClick={handleSave}>Save</button>
+                        <Link to={props.Selectedtemplate}>
+                            <button id='PreviewButton' onClick={props.handlePreview}>Preview</button>
                         </Link>
                     </div>
                 </div>

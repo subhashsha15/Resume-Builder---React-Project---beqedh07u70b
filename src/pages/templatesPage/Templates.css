@@ -1,0 +1,38 @@
+.templates{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    margin-top: 80px;
+}
+
+.templates-image img{
+    height: 450px;
+    width: 380px;
+    object-fit: fill;
+    transition: border 0.1s;
+}
+.image-clicked{
+    border: 4px solid #f56600;
+}
+.select-button{
+    margin: 50px auto;
+    margin-top: 80px;
+    width: fit-content;
+}
+.templateSelecting-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: #fff;
+    background-color: #f56600;
+    font-size: 28px;
+    font-weight: 700;
+    padding: 10px 15px;
+    box-shadow: 3px 3px 2px 1px rgb(0 0 0);
+}
+.templateSelecting-button:active{
+    translate: 2px 2px;
+    box-shadow: 1px 1px 1px 0px rgb(0 0 0);
+}

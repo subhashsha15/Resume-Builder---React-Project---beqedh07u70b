@@ -1,0 +1,23 @@
+.download {
+    width: 1000px;
+    margin: 40px auto;
+}
+
+.download-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.download-container button {
+    padding: 8px 25px;
+    background-color: #66778f;
+    border: none;
+    font-size: 18px;
+    color: white;
+    box-shadow: 3px 3px 2px 1px black;
+}
+.download-container button:active{
+    box-shadow: 1px 1px 1px 1px black;
+    translate: 2px 2px;
+}

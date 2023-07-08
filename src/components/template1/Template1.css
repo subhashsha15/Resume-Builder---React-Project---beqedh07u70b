@@ -43,9 +43,10 @@
     background-color: #cdcdcd;
     text-align: center;
     overflow: hidden;
-    /* padding-top: 25px; */
 }
 .template1-profileImage img{
+    height: 100%;
+    width: 100%;
     object-fit: cover;
 }
 .contact-items {

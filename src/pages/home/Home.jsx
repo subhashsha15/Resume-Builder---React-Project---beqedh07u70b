@@ -1,19 +1,17 @@
 import React from 'react'
 import './Home.css';
 import { Link } from "react-router-dom";
-import Form from '../../components/form/Form';
-import Template2 from '../../components/templates/template2/Template2';
-import Template3 from '../../components/templates/template3/Template3';
+import Templates from '../templatesPage/Templates';
+
 const Home = () => {
     return (
         <>
-            {/* <Form /> */}
             <div className="home">
                 <div className="home-featured1">
                     <div className="home-featured1-left">
                         <h1>Free Online Resume Builder: Make Yours in Minutes!</h1>
                         <p>Create a professional resume with ease. Our builder features 30+ templates, step-by-step guidance and endless customizable content options.</p>
-                        <Link to="/templates">
+                        <Link  className='links' to="/templates">
                             <button className='build-button'>Build My Resume</button>
                         </Link>
                     </div>
@@ -37,7 +35,7 @@ const Home = () => {
                         <p>You can upload your existing resume into our builder to give it a professional design or freshen the content with our expert-written phrases.</p>
                     </div>
                     <div className="home-featured2-right">
-                        <Link to="/form">
+                        <Link className='links' to="/form">
                             <button className='build-button featured2-button'>Update my resume</button>
                         </Link>
                     </div>
@@ -69,7 +67,7 @@ const Home = () => {
                                 and guidance for your specific role, industry and experience level.
                             </p>
                         </div>
-                        <Link to="/templates">
+                        <Link className='links' to="/templates">
                             <button className='build-button featured3-button'>Build My Resume</button>
                         </Link>
                     </div>
@@ -78,8 +76,6 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            {/* <Template2/> */}
-            <Template3/>
         </>
     )
 }

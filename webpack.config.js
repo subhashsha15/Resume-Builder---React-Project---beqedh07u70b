@@ -6,6 +6,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, "/dist"),
         filename: "index_bundle.js",
+        publicPath: '/'    //Added line
     },
     module: {
         rules: [
@@ -37,6 +38,9 @@ module.exports = {
             },
         ],
     },
+    devServer: {                        ////Added line
+        historyApiFallback: true,        ////Added line
+      },                                  ////Added line
     plugins: [
         new HtmlWebpackPlugin({
             template: "./src/index.html"

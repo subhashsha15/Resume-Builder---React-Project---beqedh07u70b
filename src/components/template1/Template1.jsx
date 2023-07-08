@@ -1,11 +1,9 @@
-import React from 'react'
+import React,{forwardRef} from 'react'
 import './Template1.css';
 import { MdAlternateEmail, MdCall } from 'react-icons/md';
 import { ImLocation } from 'react-icons/im';
 import { IoIosPerson } from 'react-icons/io';
-const Template1 = (props) => {
-    const {componentRef}=props;
-    console.log("props==",props);
+const Template1 =forwardRef((props, ref)=> {
     const { 
         FirstName,
         LastName,
@@ -28,12 +26,11 @@ const Template1 = (props) => {
         StartDate_college,
         EndDate_college,
         Interests,
-       } = props.props;
-
+       } = props.storedItems;
     return (
         <>
-            <div className="template1" ref={componentRef}>
-                <div className="template1-userName">{FirstName?FirstName:""} {LastName}</div>
+            <div className="template1" ref={ref}>
+                <div className="template1-userName">{FirstName} {LastName}</div>
                 <div className="template1-left">
                     <div className="template1-contact">
                         <div className="template1-profileImage">
@@ -75,7 +72,7 @@ const Template1 = (props) => {
                         <div className="template1-user-Skill-list">
                             <ul>
                                 {
-                                    Interests.map((items) => (<li>{items}</li>))
+                                    Interests?.map((items) => (<li>{items}</li>))
                                 }
                             </ul>
                         </div>
@@ -94,5 +91,5 @@ const Template1 = (props) => {
             </div>
         </>
     )
-}
+});
 export default Template1;
