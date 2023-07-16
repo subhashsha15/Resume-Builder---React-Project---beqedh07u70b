@@ -1,9 +1,18 @@
-import React, { forwardRef } from 'react'
+import React, { useRef ,useState,useEffect} from 'react'
 import './Template3.css';
 import { MdEmail, MdCall } from 'react-icons/md';
 import { ImLocation } from 'react-icons/im';
+import { AiFillLinkedin, AiFillInstagram, AiFillFacebook } from 'react-icons/ai';
 
-const Template3 = forwardRef((props, ref) => {
+import { jsPDF } from "jspdf";
+import html2canvas from 'html2canvas';
+import { useNavigate } from "react-router-dom";
+const Template3 = () => {
+    const [storeditems,setStoredItems]=useState("");
+    useEffect(()=>{
+        const storedItems = JSON.parse(localStorage.getItem('UserDetails'))
+        setStoredItems(storedItems);
+    },[])
     const {
         FirstName,
         LastName,
@@ -12,13 +21,11 @@ const Template3 = forwardRef((props, ref) => {
         PinCode,
         Phone,
         Email,
-        ProfilePhoto,
-        Github_Link,
+        Facebook,
         LinkedIn,
         Instagram,
         Position,
         CompanyName,
-        Certificate,
         Location,
         StartDate_Office,
         EndDate_Office,
@@ -30,14 +37,45 @@ const Template3 = forwardRef((props, ref) => {
         Degree,
         FieldOfStudy,
         collegeName,
+        collegeCity,
+        collegeState,
         StartDate_college,
         EndDate_college,
         Interests,
-        Achievements,
-    } = props.storedItems;
+        Skills,
+    } = storeditems??{};
+
+    const navigate = useNavigate();
+    const handleBackButton = () => {
+        navigate(-1);
+    }
+
+    const handleDownload = () => {
+        const downloadableElement = document.getElementById('printableContent');
+        html2canvas(downloadableElement,{
+            scale: 4
+          }).then((canvas) => {
+            const imgData = canvas.toDataURL('img/png');
+            const doc = new jsPDF('p', 'mm', 'a4');
+            const componentWidth = doc.internal.pageSize.getWidth();
+            const componentHeight = doc.internal.pageSize.getHeight();
+            doc.addImage(imgData, 'PNG', 0, 0, componentWidth, componentHeight,);
+            doc.save("Resume.pdf");
+        })
+    }
+    const handlePrint = () => {
+        const printableElement = document.getElementById('printableContent');
+        if (printableElement) {
+            const printContents = printableElement.innerHTML;
+            const originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
+        }
+    }
     return (
         <>
-            <div className='template3' ref={ref}>
+            <div id='printableContent' className='template3' >
                 <div className="template3-container">
                     <div className="template3-container-left">
                         <div className="template3-user-name">
@@ -48,26 +86,27 @@ const Template3 = forwardRef((props, ref) => {
                             <h3>Education</h3>
                             <hr />
                             <span>{collegeName}</span>
-                            <span>address</span>
                             <span>{Degree}</span>
                             <span>{FieldOfStudy}</span>
-                            <span>{StartDate_college}-{EndDate_college}</span>
+                            <span>{collegeCity},{collegeState}</span>
+                            <span>{StartDate_college} to {EndDate_college}</span>
                         </div>
                         <div className="template3-Work-history">
                             <h3>Work History</h3>
                             <hr />
+                            <span>{Position}</span>
                             <span>{CompanyName}</span>
                             <span>{Location}</span>
-                            <span>{StartDate_Office}-{EndDate_Office}</span>
+                            <span>{StartDate_Office} to {EndDate_Office}</span>
                             <p>
                                 {WorkExperience}
                             </p>
                         </div>
-                        <div className="template2-Professional-summary">
+                        <div className="template3-Projects">
                             <h3>Projects</h3>
                             <h4>{Project_title}</h4>
-                            <span>{Project_GithubLink}</span>
-                            <span>{Project_DeployedLink}</span>
+                            <span>Github:- {Project_GithubLink}</span>
+                            <span>Netlify:- {Project_DeployedLink}</span>
                             <p>
                                 {ProjectDescription}
                             </p>
@@ -76,15 +115,15 @@ const Template3 = forwardRef((props, ref) => {
                     <div className="template3-container-right">
                         <div className="template3-User-contact-details">
                             <div className="template3-user-contactItem">
-                                <sapn className='template3-icon'><MdEmail /></sapn>
+                                <span className='template3-icon'><MdEmail /></span>
                                 <span>{Email}</span>
                             </div>
                             <div className="template3-user-contactItem">
-                                <sapn className='template3-icon'><MdCall /></sapn>
+                                <span className='template3-icon'><MdCall /></span>
                                 <span>{Phone}</span>
                             </div>
                             <div className="template3-user-contactItem">
-                                <sapn className='template3-icon'><ImLocation /></sapn>
+                                <span className='template3-icon'><ImLocation /></span>
                                 <span>{City},{Country} {PinCode}</span>
                             </div>
                         </div>
@@ -92,9 +131,9 @@ const Template3 = forwardRef((props, ref) => {
                             <h3>Social Links</h3>
                             <hr />
                             <ul>
-                                <li>{LinkedIn}</li>
-                                <li>{Github_Link}</li>
-                                <li>{Instagram}</li>
+                                <li><span><AiFillLinkedin /></span> {LinkedIn}</li>
+                                <li><span><AiFillFacebook /></span>{Facebook}</li>
+                                <li><span><AiFillInstagram /></span>{Instagram}</li>
                             </ul>
                         </div>
                         <div className="template3-skills-details">
@@ -102,7 +141,7 @@ const Template3 = forwardRef((props, ref) => {
                             <hr />
                             <ul>
                                 {
-                                    Achievements.map((items) => (<li key={items}>{items}</li>))
+                                    Skills?.map((items) =>  (items?<li key={items}>{items}</li>:""))
                                 }
                             </ul>
                         </div>
@@ -111,14 +150,25 @@ const Template3 = forwardRef((props, ref) => {
                             <hr />
                             <ul>
                                 {
-                                    Interests.map((items) => (<li key={items}>{items}</li>))
+                                    Interests?.map((items) => (items?<li key={items}>{items}</li>:""))
                                 }
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
+
+            {/* *************** */}
+            <div className="download">
+                <div className="download-container">
+                    <button onClick={handleBackButton}>Back</button>
+                    <div>
+                        <button onClick={handleDownload}>Download</button>
+                        <button onClick={handlePrint}>Print</button>
+                    </div>
+                </div>
+            </div>
         </>
     )
-});
+};
 export default Template3;

@@ -49,7 +49,7 @@
 }
 
 .template3-container-right {
-    width: 30%;
+    max-width:35% ;
     background-color: #2c5a77;
 }
 
@@ -59,9 +59,23 @@
     color: #66778f;
 }
 
+/* .template3-Work-history pre {
+    line-height: 20px;
+    letter-spacing: 0px;
+    overflow: hidden;
+    word-wrap: break-word;
+} */
+
 .template3-Work-history span:nth-child(3),
 .template3-education-details span:nth-child(3) {
     font-weight: 700;
+}
+
+.template3-Projects {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #66778f;
 }
 
 .template3-education-details {
@@ -98,9 +112,11 @@
     align-items: center;
     gap: 15px;
 }
-.template3-user-contactItem span{
+
+.template3-user-contactItem span {
     letter-spacing: 1px;
 }
+
 .template3-icon {
     display: flex;
     justify-content: center;
@@ -114,7 +130,62 @@
 
 .template3-social-details ul,
 .template3-skills-details ul,
-.template3-interest-details ul{
+.template3-interest-details ul {
     padding-left: 25px;
     color: #66778f;
 }
+
+.template3-social-details {
+    overflow-wrap: break-word;
+}
+.template3-social-details ul {
+    padding-left: 0px;
+}
+.template3-social-details ul li {
+    list-style: none;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    gap: 10px;
+    word-break: break-all;
+}
+.template3-social-details ul li span{
+    font-size: 18px;
+    color: white;
+}
+/* ******************************** */
+
+.download {
+    width: 1000px;
+    margin: 40px auto;
+}
+
+.download-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.download-container button {
+    padding: 8px 25px;
+    background-color: #66778f;
+    border: none;
+    font-size: 18px;
+    color: white;
+    box-shadow: 3px 3px 2px 1px black;
+    margin-right: 20px;
+}
+
+.download-container button:active {
+    box-shadow: 1px 1px 1px 1px black;
+    translate: 2px 2px;
+}
+/* *******************************************************************Print csss */
+@media print {
+    body * {
+      visibility: visible;
+    }
+    #printableContent, #printableContent * {
+      visibility: visible;
+    }
+  }

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState } from 'react'
 import '../styles/App.css';
 import Home from '../pages/home/Home';
 import Navbar from './navbar/Navbar';
@@ -9,18 +9,10 @@ import Templates from '../pages/templatesPage/Templates';
 import Template1 from './template1/Template1';
 import Template2 from './template2/Template2';
 import Template3 from './template3/Template3';
-import Download from './download/Download';
-let Selectedtemplate;
+
 const App = () => {
   const [selectedTemplate, setSelectedTemplate] = useState("");
-  const TemplateRef1 = useRef(null);
-  const TemplateRef2 = useRef(null);
-  const TemplateRef3 = useRef(null);
-  const storedItems = JSON.parse(localStorage.getItem('UserDetails'))
-  const handlePreview=()=>{
-    Selectedtemplate = JSON.parse(localStorage.getItem('SelectedTemplate'))
-    console.log(Selectedtemplate);
-}
+
   const Layout = () => {
     return (
       <div className="app">
@@ -42,37 +34,33 @@ const App = () => {
         },
         {
           path: "/templates",
-          element: <Templates selectedTemplate={selectedTemplate} setSelectedTemplate={setSelectedTemplate} />
+          element: <Templates setSelectedTemplate={setSelectedTemplate} />
         },
         {
           path: "/templates/form/template1",
-          element: (<>
-            <Template1 storedItems={storedItems} ref={TemplateRef1} />
-            <Download
-              Selectedtemplate={Selectedtemplate}
-              TemplateRef1={TemplateRef1}
-            />
-          </>)
+          element: <Template1 />
+
+        },
+        {
+          path:"/form/template1",
+          element: <Template1 />
+
         },
         {
           path: "/templates/form/template2",
-          element: (<>
-            <Template2 storedItems={storedItems} ref={TemplateRef2} />
-            <Download
-              Selectedtemplate={Selectedtemplate}
-              TemplateRef2={TemplateRef2}
-            />
-          </>)
+          element: <Template2 />
+        },
+        {
+          path:"/form/template2",
+          element: <Template2 />
         },
         {
           path: "/templates/form/template3",
-          element: (<>
-            <Template3 storedItems={storedItems} ref={TemplateRef3} />
-            <Download
-              Selectedtemplate={Selectedtemplate}
-              TemplateRef3={TemplateRef3}
-            />
-          </>)
+          element: <Template3 />
+        },
+        {
+          path:"/form/template3",
+          element: <Template3 />
         },
         {
           path: "/form",
@@ -80,7 +68,7 @@ const App = () => {
         },
         {
           path: "/templates/form",
-          element: <Form  Selectedtemplate={Selectedtemplate} handlePreview={handlePreview} selectedTemplate={selectedTemplate} />
+          element: <Form />
         },
       ]
     },

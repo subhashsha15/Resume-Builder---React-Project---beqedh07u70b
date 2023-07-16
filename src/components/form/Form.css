@@ -108,8 +108,8 @@
     gap: 90px;
 }
 
-/* achivements and interests*/
-.user-achievements,
+/* Skills and interests*/
+.user-Skills,
 .user-interest {
     display: flex;
     flex-direction: column;
@@ -124,6 +124,8 @@
     display: flex;
     justify-content: space-between;
     gap: 50px;
+    position: sticky;
+    bottom: 20px;
 }
 
 .form-controll-buttons button {
@@ -131,6 +133,7 @@
     padding: 5px 25px;
     border: none;
     box-shadow: 2px 2px 2px 1px black;
+    background: transparent;
 }
 
 .form-controll-buttons button:active {

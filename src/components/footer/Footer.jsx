@@ -1,10 +1,11 @@
 import React from 'react'
 import './Footer.css';
+
 const Footer = () => {
   return (
     <div className="footer">
       <div className="footer-top">
-        <div className="footer-top-left">ProfolioBuilder</div>
+        <div className="footer-top-left">Portfolio Builder</div>
         <div className="footer-top-right">
           <div className="footer-top-right-item">
             <h4>Resume</h4>
@@ -71,11 +72,11 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="footer-bottom-left">© 2023, Bold Limited. All rights reserved.</div>
         <div className="footer-bottom-right">
-          <img src="../assets/images/facebook.png" alt="" />
-          <img src="../assets/images/instagram.png" alt="" />
-          <img src="../assets/images/linkedin.png" alt="" />
-          <img src="../assets/images/pinterest.png" alt="" />
-          <img src="../assets/images/twitter.png" alt="" />
+          <img src="../../../assets/images/facebook.png" alt="" />
+          <img src="../../../assets/images/instagram.png" alt="" />
+          <img src="../../../assets/images/linkedin.png" alt="" />
+          <img src="../../../assets/images/pinterest.png" alt="" />
+          <img src="../../../assets/images/twitter.png" alt="" />
         </div>
       </div>
     </div>

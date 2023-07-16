@@ -1,44 +1,134 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { TextInput } from '@mantine/core';
 import { MdEmail } from 'react-icons/md';
 import { Textarea } from '@mantine/core';
 import { Link } from "react-router-dom";
 import './Form.css';
 
-
-const Form = (props) => {
+const Form = () => {
+    // const [userDetails, setUserDetails] = useState({
+    //     FirstName: "Jhon",
+    //     LastName: "Doe",
+    //     City: "Saint-Etienne",
+    //     Country: "France",
+    //     PinCode: "82456",
+    //     Phone: "9065484654",
+    //     Email: "JhoneDoe44343@gmail.com",
+    //     ProfilePhoto: "",
+    //     Facebook: "https://github.com/sJhoneDoe44343",
+    //     LinkedIn: "https://github.com/sJhoneDoe44343",
+    //     Instagram: "https://github.com/sJhoneDoe44343",
+    //     Position: "Software Developer",
+    //     CompanyName: "Google",
+    //     Location: "Green Oaks Apartment Complex, San Antonio, Texas",
+    //     StartDate_Office: "2022-07-15",
+    //     EndDate_Office: "2023-06-30",
+    //     WorkExperience: `My role involves coordinating all sales representatives, developing sales strategies and making sure the organization meets its quarterly and annual sales goals.
+    //     1. Increased sales by an average of 12% each year by continually developing ways of reaching new potential customers
+    //     2. Reduced employee turnover by 23% by implementing new training techniques and creating a motivating bonus structure`,
+    //     Project_title: "Online Medical Consultation Website",
+    //     Project_GithubLink: "https://github.com/JhoneDoe44343/Wellness-Wizard",
+    //     Project_DeployedLink: "https://heroic-JhoneDoe44343-467a9c.netlify.app/",
+    //     ProjectDescription: `1. Convenient way to connect with a Doctor and get medical advice, 
+    //     2. Provide facilities like schedule an appointment with a doctor, access medical records and test results,
+    //     3. User information is safe, secure and private
+    //     4. Tech Stack used Html, Css, Bootstrap.`,
+    //     Degree: "Bachelor of Technology",
+    //     FieldOfStudy: "Computer Engineering",
+    //     collegeName: "Jean Monnet University,Saint-Etienne Cedex 2, France.",
+    //     collegeCity: "Saint-Etienne",
+    //     collegeState: "France",
+    //     StartDate_college: "2020-06-15",
+    //     EndDate_college: "2022-06-15",
+    //     Interests: ["Robotics", "Cyber Security", "Artificial Intelligence", "Web Development", "Android Development"],
+    //     Skills: ["HTML", "CSS", "Reactjs", "Nodejs", "Expressjs"],
+    // })
+    const [error, setError] = useState({
+        FirstName: "", LastName: "", Phone: "", Email: "", LinkedIn: "", Degree: "", FieldOfStudy: "", collegeName: "", collegeCity: "", collegeState: "",
+    })
     const [userDetails, setUserDetails] = useState({
-        FirstName: "Subhash",
-        LastName: "kumar",
-        City: "Gaya",
-        Country: "india",
-        PinCode: "823004",
-        Phone: "23136164644",
-        Email: "adf1345@gmail.com",
+        FirstName: "",
+        LastName: "",
+        City: "",
+        Country: "",
+        PinCode: "",
+        Phone: "",
+        Email: "",
         ProfilePhoto: "",
-        Github_Link: "github link",
-        LinkedIn: "Linked link",
-        Instagram: "instagream link",
-        Position: "software developer",
-        CompanyName: "Google",
-        Certificate: "",
-        Location: "USA",
+        Facebook: "",
+        LinkedIn: "",
+        Instagram: "",
+        Position: "",
+        CompanyName: "",
+        Location: "",
         StartDate_Office: "",
         EndDate_Office: "",
-        WorkExperience: "asjhdf sdafjhsgaf  sd fad sahf fsdashadf",
-        Project_title: "project tiltle",
-        Project_GithubLink: "project githublink",
-        Project_DeployedLink: "project deployed",
-        ProjectDescription: "project description",
-        Degree: "B.tech",
-        FieldOfStudy: "cicil engineer",
-        collegeName: "cochin colllege",
+        WorkExperience: "",
+        Project_title: "",
+        Project_GithubLink: "",
+        Project_DeployedLink: "",
+        ProjectDescription: "",
+        Degree: "",
+        FieldOfStudy: "",
+        collegeName: "",
+        collegeCity: "",
+        collegeState: "",
         StartDate_college: "",
         EndDate_college: "",
         Interests: ["", "", "", "", ""],
-        Achievements: ["", "", "", "", ""],
-    })
+        Skills: ["", "", "", "", ""],
+    });
+    const Selectedtemplate = JSON.parse(localStorage.getItem('SelectedTemplate'))
 
+    //validate()-contains conditions for form validation and display errors. 
+    const validate = (values) => {
+        const { FirstName, LastName, Phone, Email, LinkedIn, Degree, FieldOfStudy, collegeName, collegeCity, collegeState } = values;
+        const errors = {};
+        const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (!FirstName) {
+            errors.FirstName = "First Name is required !"
+        }
+        if (!LastName) {
+            errors.LastName = "Last Name is required !"
+        }
+        if (!Phone) {
+            errors.Phone = "Phone Number is required !"
+        } else if (Phone.length != 10) {
+            errors.Phone = "PhoneNumber should be 10digits long!"
+        }
+        if (!Email) {
+            errors.Email = "Email is required!"
+        }
+        else if (!regex.test(values.Email)) {
+            errors.Email = "Email is not valid"
+        }
+        if (!LinkedIn) {
+            errors.LinkedIn = "LinkedIn ID is required!"
+        } if (!Degree) {
+            errors.Degree = "Enter the Graduation Degree!"
+        } if (!FieldOfStudy) {
+            errors.FieldOfStudy = "Enter the Branch!"
+        } if (!collegeName) {
+            errors.collegeName = "Enter the College Name!"
+        } if (!collegeCity) {
+            errors.collegeCity = "Enter the College City!"
+        }
+        if (!collegeState) {
+            errors.collegeState = "Enter the College State!"
+        }
+        return errors;
+    }
+    useEffect(() => {
+        if (Object.keys(error).length == 0) {
+            window.localStorage.setItem('UserDetails', JSON.stringify(userDetails));
+        }
+    }, [error])
+    //handleSave()-saves the userdetails in local storage and set "Error" state
+    const handleSave = (event) => {
+        setError(validate(userDetails))
+    }
+
+    //hnadleFormInputs()-it handles all the inputs fields or user information
     const handleFormInputs = (event) => {
         const value = event.target.value;
         const field = event.target.name;
@@ -54,41 +144,38 @@ const Form = (props) => {
                 })
             }));
         }
-        if (field === "achievement1" || field === "achievement2" || field === "achievement3" || field === "achievement4" || field === "achievement5") {
+        if (field === "Skills1" || field === "Skills2" || field === "Skills3" || field === "Skills4" || field === "Skills5") {
             setUserDetails((prevState) => ({
                 ...prevState,
-                Achievements: prevState.Achievements.map((achievement, index) => {
-                    if (field === `achievement${index + 1}`) {
-                        achievement = value;
+                Skills: prevState.Skills.map((skill, index) => {
+                    if (field === `Skills${index + 1}`) {
+                        skill = value;
                     }
-                    return achievement;
+                    return skill;
                 })
             }));
         }
         if (field == "ProfilePhoto") {
             const { files } = event.target;
-            if (files) {
+            const file = files[0];
+
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function () {
                 setUserDetails((prevState) => ({
                     ...prevState,
-                    ProfilePhoto: URL.createObjectURL(files[0])
+                    ProfilePhoto: reader.result,
                 }));
-            }
+            };
+            console.log("files2=", files[0]);
         }
 
         setUserDetails((prevState) => ({
             ...prevState,
             [field]: value
         }));
-
     };
 
-    const handleSave = () => {
-        window.localStorage.setItem('UserDetails', JSON.stringify(userDetails));
-    }
-    // const handlePreview=()=>{
-    //     Selectedtemplate = JSON.parse(localStorage.getItem('SelectedTemplate'))
-    //     console.log(Selectedtemplate);
-    // }
     return (
         <>
             <div className="form">
@@ -104,6 +191,8 @@ const Form = (props) => {
                                     label="FIRST NAME"
                                     radius="xs"
                                     name="FirstName"
+                                    required
+                                    error={error.FirstName}
                                     value={userDetails.FirstName}
                                     onChange={handleFormInputs}
                                 />
@@ -112,6 +201,8 @@ const Form = (props) => {
                                     label="LAST NAME"
                                     radius="xs"
                                     name="LastName"
+                                    required
+                                    error={error.LastName}
                                     value={userDetails.LastName}
                                     onChange={handleFormInputs}
                                 />
@@ -149,6 +240,8 @@ const Form = (props) => {
                                     hidecontrols="true"
                                     type='number'
                                     name="Phone"
+                                    required
+                                    error={error.Phone}
                                     value={userDetails.Phone}
                                     onChange={handleFormInputs}
                                 />
@@ -158,15 +251,17 @@ const Form = (props) => {
                                     placeholder="Your email"
                                     radius="xs"
                                     name="Email"
+                                    required
+                                    error={error.Email}
                                     value={userDetails.Email}
                                     onChange={handleFormInputs}
                                 />
                                 <TextInput
                                     label="Upload Photo"
                                     radius="xs"
+                                    disabled={(Selectedtemplate=="template2"|| Selectedtemplate=="template3")?true:false}
                                     type="file"
                                     name="ProfilePhoto"
-                                    accept=".jpg, .jpeg, .png"
                                     onChange={handleFormInputs}
                                 />
                             </div>
@@ -175,24 +270,26 @@ const Form = (props) => {
                     <div className="social-media-links">
                         <h3>Social Media Links</h3>
                         <TextInput
-                            placeholder="Github Link"
-                            label="GITHUB LINK"
+                            placeholder="Facebook Link"
+                            label="Facebook"
                             radius="xs"
-                            name="Github_Link"
-                            value={userDetails.Github_Link}
+                            name="Facebook"
+                            value={userDetails.Facebook}
                             onChange={handleFormInputs}
                         />
                         <TextInput
-                            placeholder="LinkedIn"
+                            placeholder="LinkedIn Link"
                             label="LINKEDIN "
                             radius="xs"
                             hidecontrols="true"
                             name="LinkedIn"
+                            required
+                            error={error.LinkedIn}
                             value={userDetails.LinkedIn}
                             onChange={handleFormInputs}
                         />
                         <TextInput
-                            placeholder="Instagram"
+                            placeholder="Instagram Link"
                             label="INSTAGRAM"
                             radius="xs"
                             name="Instagram"
@@ -216,15 +313,6 @@ const Form = (props) => {
                             radius="xs"
                             name="CompanyName"
                             value={userDetails.CompanyName}
-                            onChange={handleFormInputs}
-                        />
-                        <TextInput
-                            label="CERTIFICATE"
-                            radius="xs"
-                            type="file"
-                            name="Certificate"
-                            accept=".pdf"
-                            value={userDetails.Certificate}
                             onChange={handleFormInputs}
                         />
                         <TextInput
@@ -304,6 +392,8 @@ const Form = (props) => {
                             placeholder="e.g. B.tech"
                             radius="xs"
                             name="Degree"
+                            required
+                            error={error.Degree}
                             value={userDetails.Degree}
                             onChange={handleFormInputs}
                         />
@@ -312,6 +402,8 @@ const Form = (props) => {
                             placeholder="e.g. Civil Engineer"
                             radius="xs"
                             name="FieldOfStudy"
+                            required
+                            error={error.FieldOfStudy}
                             value={userDetails.FieldOfStudy}
                             onChange={handleFormInputs}
                         />
@@ -320,7 +412,29 @@ const Form = (props) => {
                             placeholder="e.g. Indian Institute of Technology,Roorkee"
                             radius="xs"
                             name="collegeName"
+                            required
+                            error={error.collegeName}
                             value={userDetails.collegeName}
+                            onChange={handleFormInputs}
+                        />
+                        <TextInput
+                            label="City"
+                            placeholder="e.g. Kochi"
+                            radius="xs"
+                            name="collegeCity"
+                            required
+                            error={error.collegeCity}
+                            value={userDetails.collegeCity}
+                            onChange={handleFormInputs}
+                        />
+                        <TextInput
+                            label="State"
+                            placeholder="e.g. Kerala"
+                            radius="xs"
+                            name="collegeState"
+                            required
+                            error={error.collegeState}
+                            value={userDetails.collegeState}
                             onChange={handleFormInputs}
                         />
                         <div className="education-dates">
@@ -382,48 +496,48 @@ const Form = (props) => {
                             onChange={handleFormInputs}
                         />
                     </div>
-                    <div className="user-achievements">
-                        <h3>Achievements</h3>
+                    <div className="user-Skills">
+                        <h3>Skills</h3>
                         <TextInput
-                            placeholder="achievement1"
+                            placeholder="Skills1"
                             radius="xs"
-                            name="achievement1"
-                            value={userDetails.Achievements[0]}
+                            name="Skills1"
+                            value={userDetails.Skills[0]}
                             onChange={handleFormInputs}
                         />
                         <TextInput
-                            placeholder="achievement2"
+                            placeholder="Skills2"
                             radius="xs"
-                            name="achievement2"
-                            value={userDetails.Achievements[1]}
+                            name="Skills2"
+                            value={userDetails.Skills[1]}
                             onChange={handleFormInputs}
                         />
                         <TextInput
-                            placeholder="achievement3"
+                            placeholder="Skills3"
                             radius="xs"
-                            name="achievement3"
-                            value={userDetails.Achievements[2]}
+                            name="Skills3"
+                            value={userDetails.Skills[2]}
                             onChange={handleFormInputs}
                         />
                         <TextInput
-                            placeholder="achievement4"
+                            placeholder="Skills4"
                             radius="xs"
-                            name="achievement4"
-                            value={userDetails.Achievements[3]}
+                            name="Skills4"
+                            value={userDetails.Skills[3]}
                             onChange={handleFormInputs}
                         />
                         <TextInput
-                            placeholder="achievement5"
+                            placeholder="Skills5"
                             radius="xs"
-                            name="achievement5"
-                            value={userDetails.Achievements[4]}
+                            name="Skills5"
+                            value={userDetails.Skills[4]}
                             onChange={handleFormInputs}
                         />
                     </div>
                     <div className="form-controll-buttons">
                         <button id='SaveButton' onClick={handleSave}>Save</button>
-                        <Link to={props.Selectedtemplate}>
-                            <button id='PreviewButton' onClick={props.handlePreview}>Preview</button>
+                        <Link to={Selectedtemplate}>
+                            <button id='PreviewButton'>Preview</button>
                         </Link>
                     </div>
                 </div>

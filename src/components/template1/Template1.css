@@ -13,7 +13,7 @@
     font-size: 42px;
     height: 200px;
     background-color: #166b60;
-    padding-right: 110px;
+    text-transform: uppercase;
 }
 
 .template1-left {
@@ -77,30 +77,32 @@
     flex-direction: column;
     gap: 10px;
 }
-
-.template1-education h3 {
-    color: white;
+.template1-education h3,
+.template1-user-WorkHistory h3,
+.template1-Projects h3{
+   font-size: 24px;
+   text-transform: uppercase;
 }
 
+.template1-education p:nth-child(2),
+.template1-user-WorkHistory p:nth-child(2),
+.template1-Projects h4{
+    font-weight: 600;
+   color: rgba(0, 0, 0, 0.795);
+}
 .template1-right {
     position: absolute;
     right: 30px;
     display: flex;
     flex-direction: column;
     width: 700px;
+    margin-top: 10px;
 }
 
-.template1-user-summary {
+.template1-Projects {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-.template1-user-summary h3 {
-    font-size: 28px;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-top: 20px;
 }
 
 .template1-right hr {
@@ -108,7 +110,8 @@
     border: 1px solid black;
 }
 
-.template1-user-Skills h3 {
+.template1-user-Skills h3 ,
+.template1-interest-details h3{
     font-size: 28px;
     text-transform: uppercase;
 }
@@ -121,8 +124,45 @@
     display: flex;
     gap: 50px;
 }
-
-.template1-user-WorkHistory h3 {
-    font-size: 28px;
-    text-transform: uppercase;
+.template1-interest-details ul {
+    padding-left: 25px;
+    color: #66778f;
 }
+
+/* ****************Buttons**************** */
+.download {
+    width: 1000px;
+    margin: 40px auto;
+}
+
+.download-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.download-container button {
+    padding: 8px 25px;
+    background-color: #66778f;
+    border: none;
+    font-size: 18px;
+    color: white;
+    box-shadow: 3px 3px 2px 1px black;
+    margin-right: 20px;
+}
+.download-container button:active{
+    box-shadow: 1px 1px 1px 1px black;
+    translate: 2px 2px;
+}
+
+/* *******************************************************************Print csss */
+@media print {
+    body * {
+      visibility: visible;
+    }
+    #printableContent, #printableContent * {
+      visibility: visible;
+    }
+  }
+  
+  
