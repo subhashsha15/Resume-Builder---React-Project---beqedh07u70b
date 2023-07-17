@@ -16,13 +16,13 @@ const Home = () => {
                         </Link>
                     </div>
                     <div className="home-featured1-right">
-                        <img src="../../../public/images/resume.png" alt="resume.jpg" />
+                        <img src="/public/images/resume.png" alt="resume.jpg" />
                     </div>
                 </div>
             </div>
             <div className="home-brand-featured">
                 <span>Our customers have been hired by:</span>
-                <img src="../../../public/images/brand-logo.svg" alt="" />
+                <img src="/public/images/brand-logo.svg" alt="" />
             </div>
             {/* ************************************************ */}
             <div className="home-featured2">
