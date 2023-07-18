@@ -16,7 +16,7 @@ const Home = () => {
                         </Link>
                     </div>
                     <div className="home-featured1-right">
-                        <img src="/public/images/resume.png" alt="resume.jpg" />
+                        <img src="/images/resume.png" alt="resume.jpg" />
                     </div>
                 </div>
             </div>
