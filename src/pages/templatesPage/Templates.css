@@ -2,6 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
     gap: 80px;
     margin-top: 80px;
 }
@@ -35,4 +37,13 @@
 .templateSelecting-button:active{
     translate: 2px 2px;
     box-shadow: 1px 1px 1px 0px rgb(0 0 0);
+}
+.btn{
+    width: 200px;
+}
+
+@media (max-width: 391px) {
+    .templates-image img{
+        width: 350px;
+    }
 }

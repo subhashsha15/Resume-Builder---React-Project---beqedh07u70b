@@ -2,6 +2,11 @@ import React from 'react'
 import './Home.css';
 import { Link } from "react-router-dom";
 import Templates from '../templatesPage/Templates';
+import resumeImg from '../../../public/images/resume.png'
+import brandLogo from '../../../public/images/brand-logo.svg'
+import uparrowLogo from '../../../public/images/uparrow-logo.svg'
+import featured3Image from '../../../public/images/featured3-image.jpg'
+
 
 const Home = () => {
     return (
@@ -16,19 +21,19 @@ const Home = () => {
                         </Link>
                     </div>
                     <div className="home-featured1-right">
-                        <img src="/images/resume.png" alt="resume.jpg" />
+                        <img src={resumeImg} alt="resume.jpg" />
                     </div>
                 </div>
             </div>
             <div className="home-brand-featured">
                 <span>Our customers have been hired by:</span>
-                <img src="/public/images/brand-logo.svg" alt="" />
+                <img src={brandLogo} alt="" />
             </div>
             {/* ************************************************ */}
             <div className="home-featured2">
                 <div className="home-featured2-container">
                     <div className="home-featured2-left">
-                        <img src="../assets/images/uparrow-logo.svg" alt="" />
+                        <img src={uparrowLogo} alt="" />
                     </div>
                     <div className="home-featured2-middle">
                         <h3>Already have a resume?</h3>
@@ -72,7 +77,7 @@ const Home = () => {
                         </Link>
                     </div>
                     <div className="home-featured3-right">
-                        <img src="../assets/images/featured3-image.jpg" alt="resume.jpg" />
+                        <img src={featured3Image} alt="resume.jpg" />
                     </div>
                 </div>
             </div>

@@ -134,7 +134,11 @@ const Template1 = () => {
                         <p>{Location}</p>
                         <span>{StartDate_Office} to {EndDate_Office}</span>
                         <p>
-                            {WorkExperience}
+                            <ul type="square">
+                                {
+                                    WorkExperience?.split("\n").map((x) =><li>{x}</li>)
+                                }
+                            </ul>
                         </p>
                     </div>
                     <hr />
@@ -144,7 +148,11 @@ const Template1 = () => {
                         <span>Github:- {Project_GithubLink}</span>
                         <span>Netlify:- {Project_DeployedLink}</span>
                         <p>
-                            {ProjectDescription}
+                        <ul type="square">
+                                {
+                                    ProjectDescription?.split("\n").map((x) =><li>{x}</li>)
+                                }
+                            </ul>
                         </p>
                     </div>
                 </div>

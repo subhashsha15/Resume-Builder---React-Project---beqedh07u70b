@@ -1,18 +1,19 @@
-import React, { useRef ,useState,useEffect} from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import './Template3.css';
 import { MdEmail, MdCall } from 'react-icons/md';
 import { ImLocation } from 'react-icons/im';
 import { AiFillLinkedin, AiFillInstagram, AiFillFacebook } from 'react-icons/ai';
-
+import ReactDOMServer from "react-dom/server";
 import { jsPDF } from "jspdf";
 import html2canvas from 'html2canvas';
 import { useNavigate } from "react-router-dom";
+
 const Template3 = () => {
-    const [storeditems,setStoredItems]=useState("");
-    useEffect(()=>{
+    const [storeditems, setStoredItems] = useState("");
+    useEffect(() => {
         const storedItems = JSON.parse(localStorage.getItem('UserDetails'))
         setStoredItems(storedItems);
-    },[])
+    }, [])
     const {
         FirstName,
         LastName,
@@ -43,7 +44,7 @@ const Template3 = () => {
         EndDate_college,
         Interests,
         Skills,
-    } = storeditems??{};
+    } = storeditems ?? {};
 
     const navigate = useNavigate();
     const handleBackButton = () => {
@@ -52,9 +53,9 @@ const Template3 = () => {
 
     const handleDownload = () => {
         const downloadableElement = document.getElementById('printableContent');
-        html2canvas(downloadableElement,{
+        html2canvas(downloadableElement, {
             scale: 4
-          }).then((canvas) => {
+        }).then((canvas) => {
             const imgData = canvas.toDataURL('img/png');
             const doc = new jsPDF('p', 'mm', 'a4');
             const componentWidth = doc.internal.pageSize.getWidth();
@@ -72,9 +73,19 @@ const Template3 = () => {
             window.print();
             document.body.innerHTML = originalContents;
         }
+        // const content = ReactDOMServer.renderToString();
+        // const iframe = document.getElementById("printFrame");
+        // const iframeWindow = iframe.contentWindow || iframe;
+        // iframeWindow.document.open();
+        // iframeWindow.document.write(content);
+        // iframeWindow.document.close();
+        // iframe.focus();
+        // iframeWindow.print();
     }
+
     return (
-        <>
+        <>   
+        {/* <iframe id="printFrame" style={{ display: "none" }} title="Printable Content"> */}
             <div id='printableContent' className='template3' >
                 <div className="template3-container">
                     <div className="template3-container-left">
@@ -141,7 +152,7 @@ const Template3 = () => {
                             <hr />
                             <ul>
                                 {
-                                    Skills?.map((items) =>  (items?<li key={items}>{items}</li>:""))
+                                    Skills?.map((items) => (items ? <li key={items}>{items}</li> : ""))
                                 }
                             </ul>
                         </div>
@@ -150,16 +161,16 @@ const Template3 = () => {
                             <hr />
                             <ul>
                                 {
-                                    Interests?.map((items) => (items?<li key={items}>{items}</li>:""))
+                                    Interests?.map((items) => (items ? <li key={items}>{items}</li> : ""))
                                 }
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-
-            {/* *************** */}
-            <div className="download">
+             {/* </iframe> */}
+            {/* *************** */ }
+            < div className = "download" >
                 <div className="download-container">
                     <button onClick={handleBackButton}>Back</button>
                     <div>
@@ -167,7 +178,7 @@ const Template3 = () => {
                         <button onClick={handlePrint}>Print</button>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 };

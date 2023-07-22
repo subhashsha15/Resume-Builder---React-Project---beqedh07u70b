@@ -87,8 +87,6 @@
 .user-projects {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    /* align-items: center; */
     gap: 15px;
     margin: 20px 0px;
     padding: 0px 680px 0px 280px;
@@ -139,4 +137,128 @@
 .form-controll-buttons button:active {
     translate: 2px 2px;
     box-shadow: 1px 1px 0px 0px black;
+}
+
+/* *************************************** */
+@media (max-width: 391px) {
+    .form {
+        justify-content: center;
+    }
+
+    .user-contact-information-heading h3 {
+        margin-left: -55%;
+    }
+
+    .user-contact-information-items {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .user-contact-information-item,
+    .social-media-links {
+        width: 150px;
+        text-align: left;
+        padding: 0px;
+        margin-left: -55%;
+    }
+
+    .social-media-links,
+    .user-work-experience,
+    .user-projects,
+    .user-education,
+    .user-interest,
+    .user-Skills {
+        width: 150px;
+        padding: 0px;
+        margin-left: 28%;
+    }
+
+    .user-work-experience,
+    .user-projects,
+    .user-education,
+    .user-Skills,
+    .user-interest {
+        text-align: left;
+    }
+
+    .work-experience-dates,
+    .education-dates {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+}
+
+@media (min-width: 391px) and (max-width: 786px) {
+    .form {
+        justify-content: center;
+    }
+
+    .user-contact-information {
+        padding: 0px;
+    }
+
+    .user-contact-information-heading h3 {
+        margin-left: 35px;
+    }
+
+    .user-contact-information-items {
+        gap: 200px;
+        margin-left: 5%;
+    }
+
+    .user-contact-information-item {
+        width: 150px;
+        padding: 0px;
+    }
+
+    .social-media-links,
+    .user-work-experience,
+    .user-projects,
+    .user-education,
+    .user-interest,
+    .user-Skills {
+        width: 340px;
+        padding: 0px;
+        margin-left: 5%;
+    }
+
+}
+
+@media (min-width: 787px) and (max-width: 1024px) {
+    .form {
+        justify-content: center;
+        margin-left: 90px;
+    }
+
+    .user-contact-information {
+        padding: 0px;
+    }
+
+    .user-contact-information-heading h3 {
+        margin-left: 5%;
+        width: 50%;
+    }
+
+    .user-contact-information-items {
+        gap: 220px;
+        margin-left: 5%;
+    }
+
+    .user-contact-information-item {
+        width: 180px;
+        padding: 0px;
+    }
+
+    .social-media-links,
+    .user-work-experience,
+    .user-projects,
+    .user-education,
+    .user-interest,
+    .user-Skills {
+        width: 340px;
+        padding: 0px;
+        margin-left: 5%;
+    }
+
 }

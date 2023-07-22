@@ -6,79 +6,80 @@ import { Link } from "react-router-dom";
 import './Form.css';
 
 const Form = () => {
+    const [userDetails, setUserDetails] = useState({
+        FirstName: "Jhon",
+        LastName: "Doe",
+        City: "Saint-Etienne",
+        Country: "France",
+        PinCode: "82456",
+        Phone: "9065484654",
+        Email: "JhoneDoe44343@gmail.com",
+        ProfilePhoto: "",
+        Facebook: "https://github.com/sJhoneDoe44343",
+        LinkedIn: "https://github.com/sJhoneDoe44343",
+        Instagram: "https://github.com/sJhoneDoe44343",
+        Position: "Software Developer",
+        CompanyName: "Google",
+        Location: "Green Oaks Apartment Complex, San Antonio, Texas",
+        StartDate_Office: "2022-07-15",
+        EndDate_Office: "2023-06-30",
+        WorkExperience: `My role involves coordinating all sales representatives, developing sales strategies and making sure the organization meets its quarterly and annual sales goals.
+        Increased sales by an average of 12% each year by continually developing ways of reaching new potential customers
+        Reduced employee turnover by 23% by implementing new training techniques and creating a motivating bonus structure`,
+        Project_title: "Online Medical Consultation Website",
+        Project_GithubLink: "https://github.com/JhoneDoe44343/Wellness-Wizard",
+        Project_DeployedLink: "https://heroic-JhoneDoe44343-467a9c.netlify.app/",
+        ProjectDescription: `Convenient way to connect with a Doctor and get medical advice, 
+        Provide facilities like schedule an appointment with a doctor, access medical records and test results,
+        User information is safe, secure and private
+        Tech Stack used Html, Css, Bootstrap.`,
+        Degree: "Bachelor of Technology",
+        FieldOfStudy: "Computer Engineering",
+        collegeName: "Jean Monnet University,Saint-Etienne Cedex 2, France.",
+        collegeCity: "Saint-Etienne",
+        collegeState: "France",
+        StartDate_college: "2020-06-15",
+        EndDate_college: "2022-06-15",
+        Interests: ["Robotics", "Cyber Security", "Artificial Intelligence", "Web Development", "Android Development"],
+        Skills: ["HTML", "CSS", "Reactjs", "Nodejs", "Expressjs"],
+    })
     // const [userDetails, setUserDetails] = useState({
-    //     FirstName: "Jhon",
-    //     LastName: "Doe",
-    //     City: "Saint-Etienne",
-    //     Country: "France",
-    //     PinCode: "82456",
-    //     Phone: "9065484654",
-    //     Email: "JhoneDoe44343@gmail.com",
+    //     FirstName: "",
+    //     LastName: "",
+    //     City: "",
+    //     Country: "",
+    //     PinCode: "",
+    //     Phone: "",
+    //     Email: "",
     //     ProfilePhoto: "",
-    //     Facebook: "https://github.com/sJhoneDoe44343",
-    //     LinkedIn: "https://github.com/sJhoneDoe44343",
-    //     Instagram: "https://github.com/sJhoneDoe44343",
-    //     Position: "Software Developer",
-    //     CompanyName: "Google",
-    //     Location: "Green Oaks Apartment Complex, San Antonio, Texas",
-    //     StartDate_Office: "2022-07-15",
-    //     EndDate_Office: "2023-06-30",
-    //     WorkExperience: `My role involves coordinating all sales representatives, developing sales strategies and making sure the organization meets its quarterly and annual sales goals.
-    //     1. Increased sales by an average of 12% each year by continually developing ways of reaching new potential customers
-    //     2. Reduced employee turnover by 23% by implementing new training techniques and creating a motivating bonus structure`,
-    //     Project_title: "Online Medical Consultation Website",
-    //     Project_GithubLink: "https://github.com/JhoneDoe44343/Wellness-Wizard",
-    //     Project_DeployedLink: "https://heroic-JhoneDoe44343-467a9c.netlify.app/",
-    //     ProjectDescription: `1. Convenient way to connect with a Doctor and get medical advice, 
-    //     2. Provide facilities like schedule an appointment with a doctor, access medical records and test results,
-    //     3. User information is safe, secure and private
-    //     4. Tech Stack used Html, Css, Bootstrap.`,
-    //     Degree: "Bachelor of Technology",
-    //     FieldOfStudy: "Computer Engineering",
-    //     collegeName: "Jean Monnet University,Saint-Etienne Cedex 2, France.",
-    //     collegeCity: "Saint-Etienne",
-    //     collegeState: "France",
-    //     StartDate_college: "2020-06-15",
-    //     EndDate_college: "2022-06-15",
-    //     Interests: ["Robotics", "Cyber Security", "Artificial Intelligence", "Web Development", "Android Development"],
-    //     Skills: ["HTML", "CSS", "Reactjs", "Nodejs", "Expressjs"],
-    // })
+    //     Facebook: "",
+    //     LinkedIn: "",
+    //     Instagram: "",
+    //     Position: "",
+    //     CompanyName: "",
+    //     Location: "",
+    //     StartDate_Office: "",
+    //     EndDate_Office: "",
+    //     WorkExperience: "",
+    //     Project_title: "",
+    //     Project_GithubLink: "",
+    //     Project_DeployedLink: "",
+    //     ProjectDescription: "",
+    //     Degree: "",
+    //     FieldOfStudy: "",
+    //     collegeName: "",
+    //     collegeCity: "",
+    //     collegeState: "",
+    //     StartDate_college: "",
+    //     EndDate_college: "",
+    //     Interests: ["", "", "", "", ""],
+    //     Skills: ["", "", "", "", ""],
+    // });
     const [error, setError] = useState({
         FirstName: "", LastName: "", Phone: "", Email: "", LinkedIn: "", Degree: "", FieldOfStudy: "", collegeName: "", collegeCity: "", collegeState: "",
     })
-    const [userDetails, setUserDetails] = useState({
-        FirstName: "",
-        LastName: "",
-        City: "",
-        Country: "",
-        PinCode: "",
-        Phone: "",
-        Email: "",
-        ProfilePhoto: "",
-        Facebook: "",
-        LinkedIn: "",
-        Instagram: "",
-        Position: "",
-        CompanyName: "",
-        Location: "",
-        StartDate_Office: "",
-        EndDate_Office: "",
-        WorkExperience: "",
-        Project_title: "",
-        Project_GithubLink: "",
-        Project_DeployedLink: "",
-        ProjectDescription: "",
-        Degree: "",
-        FieldOfStudy: "",
-        collegeName: "",
-        collegeCity: "",
-        collegeState: "",
-        StartDate_college: "",
-        EndDate_college: "",
-        Interests: ["", "", "", "", ""],
-        Skills: ["", "", "", "", ""],
-    });
     const Selectedtemplate = JSON.parse(localStorage.getItem('SelectedTemplate'))
+    window.localStorage.setItem('UserDetails', JSON.stringify(userDetails));
 
     //validate()-contains conditions for form validation and display errors. 
     const validate = (values) => {
@@ -125,7 +126,7 @@ const Form = () => {
     }, [error])
     //handleSave()-saves the userdetails in local storage and set "Error" state
     const handleSave = (event) => {
-        setError(validate(userDetails))
+        // setError(validate(userDetails))
     }
 
     //hnadleFormInputs()-it handles all the inputs fields or user information
@@ -259,7 +260,7 @@ const Form = () => {
                                 <TextInput
                                     label="Upload Photo"
                                     radius="xs"
-                                    disabled={(Selectedtemplate=="template2"|| Selectedtemplate=="template3")?true:false}
+                                    disabled={(Selectedtemplate == "template2" || Selectedtemplate == "template3") ? true : false}
                                     type="file"
                                     name="ProfilePhoto"
                                     onChange={handleFormInputs}
@@ -344,11 +345,13 @@ const Form = () => {
                             />
                         </div>
                         <Textarea
+                            rows={5}
+                            cols={7}
                             placeholder="e.g. lorem ipsum lo ipsum lo ipsum lo"
                             label="Enter Work Description"
                             name="WorkExperience"
                             value={userDetails.WorkExperience}
-                            onChange={handleFormInputs}
+                            onInput={handleFormInputs}
                         />
                     </div>
                     <div className="user-projects">

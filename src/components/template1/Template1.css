@@ -1,9 +1,9 @@
 .template1 {
     border: 3px solid grey;
     width: 1100px;
-    margin: 0 auto;
+    margin: 50px auto;
     position: relative;
-    height: 1100px;
+    height: 1150px;
 }
 
 .template1-userName {
@@ -44,11 +44,13 @@
     text-align: center;
     overflow: hidden;
 }
-.template1-profileImage img{
+
+.template1-profileImage img {
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
+
 .contact-items {
     display: flex;
     flex-direction: column;
@@ -77,19 +79,26 @@
     flex-direction: column;
     gap: 10px;
 }
+
 .template1-education h3,
 .template1-user-WorkHistory h3,
-.template1-Projects h3{
-   font-size: 24px;
-   text-transform: uppercase;
+.template1-Projects h3 {
+    font-size: 24px;
+    text-transform: uppercase;
 }
 
 .template1-education p:nth-child(2),
 .template1-user-WorkHistory p:nth-child(2),
-.template1-Projects h4{
+.template1-Projects h4 {
     font-weight: 600;
-   color: rgba(0, 0, 0, 0.795);
+    color: rgba(0, 0, 0, 0.795);
 }
+
+.template1-user-WorkHistory p ul,
+.template1-Projects p ul {
+    margin-left: 18px;
+}
+
 .template1-right {
     position: absolute;
     right: 30px;
@@ -110,20 +119,21 @@
     border: 1px solid black;
 }
 
-.template1-user-Skills h3 ,
-.template1-interest-details h3{
+.template1-user-Skills h3,
+.template1-interest-details h3 {
     font-size: 28px;
     text-transform: uppercase;
 }
 
 .template1-user-Skills ul {
-    margin-left: 40px;
+    margin-left: 28px;
 }
 
 .template1-user-Skill-list {
     display: flex;
     gap: 50px;
 }
+
 .template1-interest-details ul {
     padding-left: 25px;
     color: #66778f;
@@ -150,7 +160,8 @@
     box-shadow: 3px 3px 2px 1px black;
     margin-right: 20px;
 }
-.download-container button:active{
+
+.download-container button:active {
     box-shadow: 1px 1px 1px 1px black;
     translate: 2px 2px;
 }
@@ -158,11 +169,12 @@
 /* *******************************************************************Print csss */
 @media print {
     body * {
-      visibility: visible;
+        visibility: visible;
     }
-    #printableContent, #printableContent * {
-      visibility: visible;
+
+    #printableContent,
+    #printableContent * {
+        visibility: visible;
     }
-  }
-  
-  
+}
+

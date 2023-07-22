@@ -9,6 +9,8 @@ import Templates from '../pages/templatesPage/Templates';
 import Template1 from './template1/Template1';
 import Template2 from './template2/Template2';
 import Template3 from './template3/Template3';
+import Contact from '../pages/contactUs/ContactUs';
+
 
 const App = () => {
   const [selectedTemplate, setSelectedTemplate] = useState("");
@@ -69,6 +71,10 @@ const App = () => {
         {
           path: "/templates/form",
           element: <Form />
+        },
+        {
+          path: "/contactUs",
+          element: <Contact />
         },
       ]
     },

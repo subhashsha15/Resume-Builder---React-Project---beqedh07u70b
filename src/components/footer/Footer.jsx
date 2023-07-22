@@ -1,6 +1,10 @@
 import React from 'react'
 import './Footer.css';
-
+import facebookImg from '../../../public/images/facebook.png'
+import instagramImg from '../../../public/images/instagram.png'
+import twitterImg from '../../../public/images/twitter.png'
+import pinterestImg from '../../../public/images/pinterest.png'
+import linkedinImg from '../../../public/images/linkedin.png'
 const Footer = () => {
   return (
     <div className="footer">
@@ -72,11 +76,11 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="footer-bottom-left">© 2023, Bold Limited. All rights reserved.</div>
         <div className="footer-bottom-right">
-          <img src="../../../assets/images/facebook.png" alt="" />
-          <img src="../../../assets/images/instagram.png" alt="" />
-          <img src="../../../assets/images/linkedin.png" alt="" />
-          <img src="../../../assets/images/pinterest.png" alt="" />
-          <img src="../../../assets/images/twitter.png" alt="" />
+          <img src={facebookImg} alt="" />
+          <img src={instagramImg} alt="" />
+          <img src={twitterImg} alt="" />
+          <img src={linkedinImg} alt="" />
+          <img src={pinterestImg} alt="" />
         </div>
       </div>
     </div>

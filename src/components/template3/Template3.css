@@ -59,13 +59,6 @@
     color: #66778f;
 }
 
-/* .template3-Work-history pre {
-    line-height: 20px;
-    letter-spacing: 0px;
-    overflow: hidden;
-    word-wrap: break-word;
-} */
-
 .template3-Work-history span:nth-child(3),
 .template3-education-details span:nth-child(3) {
     font-weight: 700;

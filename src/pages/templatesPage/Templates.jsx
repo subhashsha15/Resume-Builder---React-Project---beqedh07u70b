@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 import './Templates.css';
+import template1Img from "../../../public/images/template1.png"
+import template2Img from "../../../public/images/template2.png"
+import template3Img from "../../../public/images/template3.png"
 const Templates = (props) => {
     const [currentTemplateId, setCurrentTemplateId] = useState("");
     const [classname, setClassName] = useState({
@@ -31,20 +34,29 @@ const Templates = (props) => {
         <>
             <div className="templates">
                 <div className={template1 ? "templates-image image-clicked" : "templates-image"} onClick={handleImageClick} >
-                    <img src="../../assets/images/template1.png" id="template1" alt="template1-photo" />
+                    <img src={template1Img} id="template1" alt="template1-photo" />
                 </div>
                 <div className={template2 ? "templates-image image-clicked" : "templates-image"} onClick={handleImageClick}>
-                    <img src="../../assets/images/template2.png" id="template2" alt="template2-photo" />
+                    <img src={template2Img} id="template2" alt="template2-photo" />
                 </div>
                 <div className={template3 ? "templates-image image-clicked" : "templates-image"} onClick={handleImageClick}>
-                    <img src="../../assets/images/template3.png" id="template3" alt="template3-photo" />
+                    <img src={template3Img} id="template3" alt="template3-photo" />
                 </div>
             </div>
-            <Link className='links' to="/templates/form">
-                <div className="select-button">
-                    <button className='templateSelecting-button' onClick={handleSelectedTemplate}>{template1 || template2 || template3 ? "Ok" : "Select a Template"}</button>
-                </div>
-            </Link>
+
+            <div className="select-button">
+                {/* <button className='templateSelecting-button ' onClick={handleSelectedTemplate}> */}
+                {template1 || template2 || template3 ?
+
+                    <Link className='links' to="/templates/form">
+                        <button className='templateSelecting-button btn' onClick={handleSelectedTemplate}>Ok</button>
+                    </Link>
+
+                    : <button className='templateSelecting-button '>Select a Template</button>
+                }
+                {/* </button> */}
+            </div >
+
         </>
     )
 }
