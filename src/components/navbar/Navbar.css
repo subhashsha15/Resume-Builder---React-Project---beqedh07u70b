@@ -2,10 +2,6 @@
   background-color:#01636f;
   display: flex;
   justify-content: center;
-  /* background-image: url('../../../public/images/navImg.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position:center; */
 }
 
 .navbar-container {
@@ -42,7 +38,6 @@
   display: block;
   height: 4px;
   width: 100%;
-  /* background-color: #f8400a; */
   background-color: #f56600;
   transform: scaleX(0);
   transform-origin: left;
