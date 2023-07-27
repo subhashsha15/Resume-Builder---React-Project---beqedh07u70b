@@ -9,7 +9,7 @@ const Navbar = () => {
         return {
             fontWeight: isActive ? "bold" : "normal",
             textDecoration: isActive ? "none" : "none",
-            color: isActive ? "#f8400a" : "black"
+            color: isActive ? "#f56600" : "black"
         };
     };
     const showNavbar = () => {

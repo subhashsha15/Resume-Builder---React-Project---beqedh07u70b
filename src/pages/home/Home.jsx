@@ -1,7 +1,8 @@
 import React from 'react'
 import './Home.css';
 import { Link } from "react-router-dom";
-import resumeImg from '../../../public/images/resume.png'
+// import resumeImg from '../../../public/images/resume.png'
+import resumeImg from '../../../public/images/featured1-image.jpg'
 import brandLogo from '../../../public/images/brand-logo.svg'
 import uparrowLogo from '../../../public/images/uparrow-logo.svg'
 import featured3Image from '../../../public/images/featured3-image.jpg'
