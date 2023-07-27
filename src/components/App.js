@@ -11,9 +11,10 @@ import Template2 from './template2/Template2';
 import Template3 from './template3/Template3';
 import Contact from '../pages/contactUs/ContactUs';
 
-
 const App = () => {
   const [selectedTemplate, setSelectedTemplate] = useState("");
+  const [flag0, setFlag0] = useState(0);
+  const [flag1, setFlag1] = useState(1);
 
   const Layout = () => {
     return (
@@ -44,7 +45,12 @@ const App = () => {
 
         },
         {
-          path:"/form/template1",
+          path: "/form/template1",
+          element: <Template1 />
+
+        },
+        {
+          path: "/updatedform/template1",
           element: <Template1 />
 
         },
@@ -53,7 +59,11 @@ const App = () => {
           element: <Template2 />
         },
         {
-          path:"/form/template2",
+          path: "/form/template2",
+          element: <Template2 />
+        },
+        {
+          path: "/updatedform/template2",
           element: <Template2 />
         },
         {
@@ -61,16 +71,20 @@ const App = () => {
           element: <Template3 />
         },
         {
-          path:"/form/template3",
+          path: "/form/template3",
+          element: <Template3 />
+        },
+        {
+          path: "/updatedform/template3",
           element: <Template3 />
         },
         {
           path: "/form",
-          element: <Form />
+          element: <Form flag={flag1}/>
         },
         {
           path: "/templates/form",
-          element: <Form />
+          element: <Form flag={flag0} />
         },
         {
           path: "/contactUs",

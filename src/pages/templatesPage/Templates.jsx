@@ -45,16 +45,13 @@ const Templates = (props) => {
             </div>
 
             <div className="select-button">
-                {/* <button className='templateSelecting-button ' onClick={handleSelectedTemplate}> */}
                 {template1 || template2 || template3 ?
-
                     <Link className='links' to="/templates/form">
                         <button className='templateSelecting-button btn' onClick={handleSelectedTemplate}>Ok</button>
                     </Link>
 
                     : <button className='templateSelecting-button '>Select a Template</button>
                 }
-                {/* </button> */}
             </div >
 
         </>

@@ -15,7 +15,9 @@
     transition: border 0.1s;
 }
 .image-clicked{
-    border: 4px solid #f56600;
+    /* border: 4px solid #f56600; */
+    outline: 4px solid #f56600;
+    outline-offset: 6px;
 }
 .select-button{
     margin: 50px auto;

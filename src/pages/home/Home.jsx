@@ -1,7 +1,6 @@
 import React from 'react'
 import './Home.css';
 import { Link } from "react-router-dom";
-import Templates from '../templatesPage/Templates';
 import resumeImg from '../../../public/images/resume.png'
 import brandLogo from '../../../public/images/brand-logo.svg'
 import uparrowLogo from '../../../public/images/uparrow-logo.svg'

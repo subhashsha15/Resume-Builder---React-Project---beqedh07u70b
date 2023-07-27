@@ -1,5 +1,5 @@
-/* .download {
-    width: 1000px;
+.download {
+    width: 950px;
     margin: 40px auto;
 }
 
@@ -16,9 +16,15 @@
     font-size: 18px;
     color: white;
     box-shadow: 3px 3px 2px 1px black;
-    margin-right: 20px;
 }
 .download-container button:active{
     box-shadow: 1px 1px 1px 1px black;
     translate: 2px 2px;
-} */
+}
+.btn{
+    display: flex;
+    gap: 30px;
+}
+.btn:last-child{
+    margin-right: 50px;
+}

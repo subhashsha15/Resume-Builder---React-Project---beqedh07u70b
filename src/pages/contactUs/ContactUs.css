@@ -124,6 +124,7 @@ textarea {
         flex-direction: column-reverse;
         width: 100%;
         height: fit-content;
+        padding: 0px 5px;
     }
 
     .contact-container-left {
@@ -148,11 +149,11 @@ textarea {
 
     .user-details input,
     textarea {
-        width: 358px;
+        width: 345px;
     }
 
     .message-button {
-        margin: 0px auto;
+        margin: 20px auto;
     }
 
     .contact-container-right {
@@ -166,6 +167,7 @@ textarea {
         flex-direction: column-reverse;
         width: 100%;
         height: fit-content;
+        padding: 0px 15px;
     }
 
     .contact-container-left {
@@ -194,13 +196,14 @@ textarea {
     }
 
     .message-button {
-        margin: 0px auto;
+        margin: 20px auto;
     }
 
     .contact-container-right {
         width: 100%;
     }
 }
+
 @media (min-width: 787px) and (max-width: 1024px) {
     .contact-container {
         width: 100%;

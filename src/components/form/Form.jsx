@@ -1,83 +1,125 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { TextInput } from '@mantine/core';
 import { MdEmail } from 'react-icons/md';
 import { Textarea } from '@mantine/core';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './Form.css';
+const Form = (props) => {
+    const storedItems = JSON.parse(localStorage.getItem('UserDetails'))
+    const initializeState = (condition) => {
+        if (condition == 0) {
+            // return useState({
+            //     FirstName: "",
+            //     LastName: "",
+            //     City: "",
+            //     Country: "",
+            //     PinCode: "",
+            //     Phone: "",
+            //     Email: "",
+            //     ProfilePhoto: "",
+            //     Facebook: "",
+            //     LinkedIn: "",
+            //     Instagram: "",
+            //     Position: "",
+            //     CompanyName: "",
+            //     Location: "",
+            //     StartDate_Office: "",
+            //     EndDate_Office: "",
+            //     WorkExperience: "",
+            //     Project_title: "",
+            //     Project_GithubLink: "",
+            //     Project_DeployedLink: "",
+            //     ProjectDescription: "",
+            //     Degree: "",
+            //     FieldOfStudy: "",
+            //     collegeName: "",
+            //     collegeCity: "",
+            //     collegeState: "",
+            //     StartDate_college: "",
+            //     EndDate_college: "",
+            //     Interests: ["", "", "", "", ""],
+            //     Skills: ["", "", "", "", ""],
+            // });
+           return useState({
+                    FirstName: "Jhon",
+                    LastName: "Doe",
+                    City: "Saint-Etienne",
+                    Country: "France",
+                    PinCode: "82456",
+                    Phone: "9065484654",
+                    Email: "JhoneDoe44343@gmail.com",
+                    ProfilePhoto: "",
+                    Facebook: "https://github.com/sJhoneDoe44343",
+                    LinkedIn: "https://github.com/sJhoneDoe44343",
+                    Instagram: "https://github.com/sJhoneDoe44343",
+                    Position: "Software Developer",
+                    CompanyName: "Google",
+                    Location: "Green Oaks Apartment Complex, San Antonio, Texas",
+                    StartDate_Office: "2022-07-15",
+                    EndDate_Office: "2023-06-30",
+                    WorkExperience: `My role involves coordinating all sales representatives, developing sales strategies and making sure the organization meets its quarterly and annual sales goals.
+                        Increased sales by an average of 12% each year by continually developing ways of reaching new potential customers
+                        Reduced employee turnover by 23% by implementing new training techniques and creating a motivating bonus structure`,
+                    Project_title: "Online Medical Consultation Website",
+                    Project_GithubLink: "https://github.com/JhoneDoe44343/Wellness-Wizard",
+                    Project_DeployedLink: "https://heroic-JhoneDoe44343-467a9c.netlify.app/",
+                    ProjectDescription: `Convenient way to connect with a Doctor and get medical advice, 
+                        Provide facilities like schedule an appointment with a doctor, access medical records and test results,
+                        User information is safe, secure and private
+                        Tech Stack used Html, Css, Bootstrap.`,
+                    Degree: "Bachelor of Technology",
+                    FieldOfStudy: "Computer Engineering",
+                    collegeName: "Jean Monnet University,Saint-Etienne Cedex 2, France.",
+                    collegeCity: "Saint-Etienne",
+                    collegeState: "France",
+                    StartDate_college: "2020-06-15",
+                    EndDate_college: "2022-06-15",
+                    Interests: ["Robotics", "Cyber Security", "Artificial Intelligence", "Web Development", "Android Development"],
+                    Skills: ["HTML", "CSS", "Reactjs", "Nodejs", "Expressjs"],
+                });
+        } else {
+            return useState({
+                FirstName: storedItems.FirstName,
+                LastName: storedItems.LastName,
+                City: storedItems.City,
+                Country: storedItems.Country,
+                PinCode: storedItems.PinCode,
+                Phone: storedItems.Phone,
+                Email: storedItems.Email,
+                ProfilePhoto: storedItems.ProfilePhoto,
+                Facebook: storedItems.Facebook,
+                LinkedIn: storedItems.LinkedIn,
+                Instagram: storedItems.Instagram,
+                Position: storedItems.Position,
+                CompanyName: storedItems.CompanyName,
+                Location: storedItems.Location,
+                StartDate_Office: storedItems.StartDate_Office,
+                EndDate_Office: storedItems.EndDate_Office,
+                WorkExperience: storedItems.WorkExperience,
+                Project_title: storedItems.Project_title,
+                Project_GithubLink: storedItems.Project_GithubLink,
+                Project_DeployedLink: storedItems.Project_DeployedLink,
+                ProjectDescription: storedItems.ProjectDescription,
+                Degree: storedItems.Degree,
+                FieldOfStudy: storedItems.FieldOfStudy,
+                collegeName: storedItems.collegeName,
+                collegeCity: storedItems.collegeCity,
+                collegeState: storedItems.collegeState,
+                StartDate_college: storedItems.StartDate_college,
+                EndDate_college: storedItems.EndDate_college,
+                Interests: storedItems.Interests,
+                Skills: storedItems.Skills,
+            });
+        }
+    };
 
-const Form = () => {
-    const [userDetails, setUserDetails] = useState({
-        FirstName: "Jhon",
-        LastName: "Doe",
-        City: "Saint-Etienne",
-        Country: "France",
-        PinCode: "82456",
-        Phone: "9065484654",
-        Email: "JhoneDoe44343@gmail.com",
-        ProfilePhoto: "",
-        Facebook: "https://github.com/sJhoneDoe44343",
-        LinkedIn: "https://github.com/sJhoneDoe44343",
-        Instagram: "https://github.com/sJhoneDoe44343",
-        Position: "Software Developer",
-        CompanyName: "Google",
-        Location: "Green Oaks Apartment Complex, San Antonio, Texas",
-        StartDate_Office: "2022-07-15",
-        EndDate_Office: "2023-06-30",
-        WorkExperience: `My role involves coordinating all sales representatives, developing sales strategies and making sure the organization meets its quarterly and annual sales goals.
-        Increased sales by an average of 12% each year by continually developing ways of reaching new potential customers
-        Reduced employee turnover by 23% by implementing new training techniques and creating a motivating bonus structure`,
-        Project_title: "Online Medical Consultation Website",
-        Project_GithubLink: "https://github.com/JhoneDoe44343/Wellness-Wizard",
-        Project_DeployedLink: "https://heroic-JhoneDoe44343-467a9c.netlify.app/",
-        ProjectDescription: `Convenient way to connect with a Doctor and get medical advice, 
-        Provide facilities like schedule an appointment with a doctor, access medical records and test results,
-        User information is safe, secure and private
-        Tech Stack used Html, Css, Bootstrap.`,
-        Degree: "Bachelor of Technology",
-        FieldOfStudy: "Computer Engineering",
-        collegeName: "Jean Monnet University,Saint-Etienne Cedex 2, France.",
-        collegeCity: "Saint-Etienne",
-        collegeState: "France",
-        StartDate_college: "2020-06-15",
-        EndDate_college: "2022-06-15",
-        Interests: ["Robotics", "Cyber Security", "Artificial Intelligence", "Web Development", "Android Development"],
-        Skills: ["HTML", "CSS", "Reactjs", "Nodejs", "Expressjs"],
-    })
-    // const [userDetails, setUserDetails] = useState({
-    //     FirstName: "",
-    //     LastName: "",
-    //     City: "",
-    //     Country: "",
-    //     PinCode: "",
-    //     Phone: "",
-    //     Email: "",
-    //     ProfilePhoto: "",
-    //     Facebook: "",
-    //     LinkedIn: "",
-    //     Instagram: "",
-    //     Position: "",
-    //     CompanyName: "",
-    //     Location: "",
-    //     StartDate_Office: "",
-    //     EndDate_Office: "",
-    //     WorkExperience: "",
-    //     Project_title: "",
-    //     Project_GithubLink: "",
-    //     Project_DeployedLink: "",
-    //     ProjectDescription: "",
-    //     Degree: "",
-    //     FieldOfStudy: "",
-    //     collegeName: "",
-    //     collegeCity: "",
-    //     collegeState: "",
-    //     StartDate_college: "",
-    //     EndDate_college: "",
-    //     Interests: ["", "", "", "", ""],
-    //     Skills: ["", "", "", "", ""],
-    // });
+    const [userDetails, setUserDetails] = initializeState(props.flag);
+
     const [error, setError] = useState({
         FirstName: "", LastName: "", Phone: "", Email: "", LinkedIn: "", Degree: "", FieldOfStudy: "", collegeName: "", collegeCity: "", collegeState: "",
     })
+
+    const navigate = useNavigate();
     const Selectedtemplate = JSON.parse(localStorage.getItem('SelectedTemplate'))
     window.localStorage.setItem('UserDetails', JSON.stringify(userDetails));
 
@@ -119,14 +161,19 @@ const Form = () => {
         }
         return errors;
     }
-    useEffect(() => {
+
+    const handlePreview = (e) => {
         if (Object.keys(error).length == 0) {
-            window.localStorage.setItem('UserDetails', JSON.stringify(userDetails));
+            navigate(Selectedtemplate);
         }
-    }, [error])
+        else {
+            e.preventDefault();
+        }
+    }
     //handleSave()-saves the userdetails in local storage and set "Error" state
     const handleSave = (event) => {
-        // setError(validate(userDetails))
+        setError(validate(userDetails))
+        window.localStorage.setItem('UserDetails', JSON.stringify(userDetails));
     }
 
     //hnadleFormInputs()-it handles all the inputs fields or user information
@@ -235,7 +282,7 @@ const Form = () => {
                                     onChange={handleFormInputs}
                                 />
                                 <TextInput
-                                    placeholder="e.g. +919933254487"
+                                    placeholder="e.g. 9933254487"
                                     label="PHONE"
                                     radius="xs"
                                     hidecontrols="true"
@@ -249,7 +296,7 @@ const Form = () => {
                                 <TextInput
                                     icon={<MdEmail />}
                                     label="EMAIL"
-                                    placeholder="Your email"
+                                    placeholder="saanvipatel123@gmail.com"
                                     radius="xs"
                                     name="Email"
                                     required
@@ -365,7 +412,7 @@ const Form = () => {
                             onChange={handleFormInputs}
                         />
                         <TextInput
-                            placeholder="Project Github Link"
+                            placeholder="https://github.com/jhondoe123"
                             label="GITHUB LINK"
                             radius="xs"
                             name="Project_GithubLink"
@@ -373,7 +420,7 @@ const Form = () => {
                             onChange={handleFormInputs}
                         />
                         <TextInput
-                            placeholder="Deployed Link"
+                            placeholder="https://twitter_clone.netlify.app"
                             label="DEPLOYED LINK"
                             radius="xs"
                             name="Project_DeployedLink"
@@ -402,7 +449,7 @@ const Form = () => {
                         />
                         <TextInput
                             label="FIELD OF STUDY"
-                            placeholder="e.g. Civil Engineer"
+                            placeholder="e.g. computer science"
                             radius="xs"
                             name="FieldOfStudy"
                             required
@@ -422,7 +469,7 @@ const Form = () => {
                         />
                         <TextInput
                             label="City"
-                            placeholder="e.g. Kochi"
+                            placeholder="e.g. Roorkee"
                             radius="xs"
                             name="collegeCity"
                             required
@@ -432,7 +479,7 @@ const Form = () => {
                         />
                         <TextInput
                             label="State"
-                            placeholder="e.g. Kerala"
+                            placeholder="e.g. Uttarakhand"
                             radius="xs"
                             name="collegeState"
                             required
@@ -539,9 +586,7 @@ const Form = () => {
                     </div>
                     <div className="form-controll-buttons">
                         <button id='SaveButton' onClick={handleSave}>Save</button>
-                        <Link to={Selectedtemplate}>
-                            <button id='PreviewButton'>Preview</button>
-                        </Link>
+                        <button id='PreviewButton' onClick={handlePreview}>Preview</button>
                     </div>
                 </div>
             </div>
