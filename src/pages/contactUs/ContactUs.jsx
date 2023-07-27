@@ -4,14 +4,14 @@ import ContactImg from '../../../public/images/contactpageImg3.jpg'
 import avatarImg from '../../../public/images/avatar.jpg'
 const Contact = () => {
     const userInfo = JSON.parse(localStorage.getItem('UserDetails'))
-    const { FirstName, LastName, Email } = userInfo;
+    const { FirstName, LastName, Email } = userInfo ?? {};
     const [message, setMessage] = useState("");
     const handleMessage = (event) => {
         event.stopPropagation();
         if (message && FirstName) {
             alert(`Congratulations ${FirstName} ! \nyour message has been sent`);
         }
-       else {
+        else {
             if (!message) {
                 alert("write the message")
             }
