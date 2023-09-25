@@ -35,7 +35,7 @@ const Contact = () => {
                         <div className="user-contact-details">
                             <div className="user-details">
                                 <label htmlFor="name">Name</label>
-                                <input type="text" id="name" placeholder="Jhon Doe" value={`${FirstName} ${LastName}`} />
+                                <input type="text" id="name" placeholder="Jhon Doe" value={`${FirstName ? `${FirstName}` : ''}${LastName ? `${LastName}` : ''}`} />
                             </div>
 
                             <div className="user-details">

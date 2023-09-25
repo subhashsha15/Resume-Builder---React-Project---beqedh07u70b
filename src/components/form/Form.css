@@ -140,6 +140,19 @@
 }
 
 /* *************************************** */
+@media (max-width: 320px) {
+    .form-controll-buttons {
+        gap: 20px;
+        flex-direction: column;
+    }
+    
+    .form-controll-buttons button {
+        width: 200%; /* Make buttons full width */
+        text-align: center; /* Center button text */
+    }
+
+}
+
 @media (max-width: 391px) {
     .form {
         justify-content: center;
@@ -187,6 +200,16 @@
         gap: 15px;
     }
 
+    .form-controll-buttons {
+        margin-left:200px;
+        gap: 20px;
+        flex-direction: column;
+    }
+    
+    .form-controll-buttons button {
+        width: 200%;
+        text-align: center; 
+    }
 }
 
 @media (min-width: 391px) and (max-width: 786px) {

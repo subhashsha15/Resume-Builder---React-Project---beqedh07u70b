@@ -6,7 +6,7 @@
 
 .contact-container {
     width: 1280px;
-    height: 732px;
+    height: 632px;
     display: flex;
     margin-top: 50px;
 }
@@ -109,7 +109,7 @@ textarea {
 .contact-container-right {
     width: 640px;
     overflow: hidden;
-    height: 732px;
+    height: auto;
 }
 
 .contact-container-right img {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Download.css"
 import { jsPDF } from "jspdf";
 import html2canvas from 'html2canvas';
@@ -25,6 +25,7 @@ const Download = (props) => {
     const handlePrint = () => {
         window.print();
     }
+ 
     return (
         <>
             <div className="download">
@@ -33,6 +34,7 @@ const Download = (props) => {
                     <div className="btn">
                         <button onClick={handleDownload}>Download</button>
                         <button onClick={handlePrint}>Print</button>
+                
                     </div>
                 </div>
             </div>

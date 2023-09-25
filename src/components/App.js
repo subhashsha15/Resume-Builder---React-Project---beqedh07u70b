@@ -10,6 +10,7 @@ import Template1 from './template1/Template1';
 import Template2 from './template2/Template2';
 import Template3 from './template3/Template3';
 import Contact from '../pages/contactUs/ContactUs';
+import SignUp from '../pages/signup/SignUp';
 
 const App = () => {
   const [selectedTemplate, setSelectedTemplate] = useState("");
@@ -19,9 +20,7 @@ const App = () => {
   const Layout = () => {
     return (
       <div className="app">
-        <Navbar />
         <Outlet />
-        <Footer />
       </div>
     )
   }
@@ -33,7 +32,16 @@ const App = () => {
       children: [
         {
           path: "/",
-          element: <Home />
+          element: <SignUp />
+        },
+        {
+          path: "/home",
+          element:
+            <>
+              <Navbar />
+              <Home />
+              <Footer />
+            </>
         },
         {
           path: "/templates",
@@ -80,14 +88,14 @@ const App = () => {
         },
         {
           path: "/form",
-          element: <Form flag={flag1}/>
+          element: <Form flag={flag1} />
         },
         {
           path: "/templates/form",
           element: <Form flag={flag0} />
         },
         {
-          path: "/contactUs",
+          path: "/contactus",
           element: <Contact />
         },
       ]

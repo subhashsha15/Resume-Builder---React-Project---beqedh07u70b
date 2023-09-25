@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="footer-top">
         <div className="footer-top-left">Portfolio Builder</div>
         <div className="footer-top-right">
-          <div className="footer-top-right-item">
+          <div className="footer-top-right-item" onClick={()=>alert("This feature is coming soon,please come back")}>
             <h4>Resume</h4>
             <span>Resume Builder</span>
             <span>Resume Examples</span>
@@ -20,7 +20,7 @@ const Footer = () => {
             <span>Resume Objectives</span>
             <span>How to Write a Resume</span>
           </div>
-          <div className="footer-top-right-item">
+          <div className="footer-top-right-item" onClick={()=>alert("This feature is coming soon,please come back")}>
             <h4>Cover Letter</h4>
             <span>Cover Letter Builder</span>
             <span>Cover Letter Examples</span>
@@ -28,7 +28,7 @@ const Footer = () => {
             <span>Cover Letter Formats</span>
             <span>How to Write a Cover Letter</span>
           </div>
-          <div className="footer-top-right-item">
+          <div className="footer-top-right-item" onClick={()=>alert("This feature is coming soon,please come back")}>
             <h4>CV</h4>
             <span>CV Builder</span>
             <span>CV Examples</span>
@@ -36,7 +36,7 @@ const Footer = () => {
             <span>CV Formats</span>
             <span>How To Write a CV</span>
           </div>
-          <div className="footer-top-right-item">
+          <div className="footer-top-right-item" onClick={()=>alert("This feature is coming soon,please come back")}>
             <h4>About</h4>
             <span>About Us</span>
             <span>Privacy Policy</span>
@@ -44,7 +44,7 @@ const Footer = () => {
             <span>Editorial Policy</span>
             <span>Sitemap</span>
           </div>
-          <div className="footer-top-right-item">
+          <div className="footer-top-right-item" onClick={()=>alert("This feature is coming soon,please come back")}>
             <h4>Help & Support</h4>
             <span>Work Here</span>
             <span>Contact Us</span>
@@ -52,7 +52,7 @@ const Footer = () => {
             <span>Accessibility</span>
             <span>Affiliates</span>
           </div>
-          <div className="footer-top-right-item">
+          <div className="footer-top-right-item" onClick={()=>alert("This feature is coming soon,please come back")}>
             <h4>Languages</h4>
             <div className="language-item">
               <div className="language-items">

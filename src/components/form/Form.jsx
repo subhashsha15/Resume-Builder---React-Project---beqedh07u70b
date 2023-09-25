@@ -40,79 +40,113 @@ const Form = (props) => {
                 Interests: ["", "", "", "", ""],
                 Skills: ["", "", "", "", ""],
             });
-        //    return useState({
-        //             FirstName: "Jhon",
-        //             LastName: "Doe",
-        //             City: "Saint-Etienne",
-        //             Country: "France",
-        //             PinCode: "82456",
-        //             Phone: "9065484654",
-        //             Email: "JhoneDoe44343@gmail.com",
-        //             ProfilePhoto: "",
-        //             Facebook: "https://github.com/sJhoneDoe44343",
-        //             LinkedIn: "https://github.com/sJhoneDoe44343",
-        //             Instagram: "https://github.com/sJhoneDoe44343",
-        //             Position: "Software Developer",
-        //             CompanyName: "Google",
-        //             Location: "Green Oaks Apartment Complex, San Antonio, Texas",
-        //             StartDate_Office: "2022-07-15",
-        //             EndDate_Office: "2023-06-30",
-        //             WorkExperience: `My role involves coordinating all sales representatives, developing sales strategies and making sure the organization meets its quarterly and annual sales goals.
-        //                 Increased sales by an average of 12% each year by continually developing ways of reaching new potential customers
-        //                 Reduced employee turnover by 23% by implementing new training techniques and creating a motivating bonus structure`,
-        //             Project_title: "Online Medical Consultation Website",
-        //             Project_GithubLink: "https://github.com/JhoneDoe44343/Wellness-Wizard",
-        //             Project_DeployedLink: "https://heroic-JhoneDoe44343-467a9c.netlify.app/",
-        //             ProjectDescription: `Convenient way to connect with a Doctor and get medical advice, 
-        //                 Provide facilities like schedule an appointment with a doctor, access medical records and test results,
-        //                 User information is safe, secure and private
-        //                 Tech Stack used Html, Css, Bootstrap.`,
-        //             Degree: "Bachelor of Technology",
-        //             FieldOfStudy: "Computer Engineering",
-        //             collegeName: "Jean Monnet University,Saint-Etienne Cedex 2, France.",
-        //             collegeCity: "Saint-Etienne",
-        //             collegeState: "France",
-        //             StartDate_college: "2020-06-15",
-        //             EndDate_college: "2022-06-15",
-        //             Interests: ["Robotics", "Cyber Security", "Artificial Intelligence", "Web Development", "Android Development"],
-        //             Skills: ["HTML", "CSS", "Reactjs", "Nodejs", "Expressjs"],
-        //         });
-        } else {
+            //    return useState({
+            //             FirstName: "Jhon",
+            //             LastName: "Doe",
+            //             City: "Saint-Etienne",
+            //             Country: "France",
+            //             PinCode: "82456",
+            //             Phone: "9065484654",
+            //             Email: "JhoneDoe44343@gmail.com",
+            //             ProfilePhoto: "",
+            //             Facebook: "https://github.com/sJhoneDoe44343",
+            //             LinkedIn: "https://github.com/sJhoneDoe44343",
+            //             Instagram: "https://github.com/sJhoneDoe44343",
+            //             Position: "Software Developer",
+            //             CompanyName: "Google",
+            //             Location: "Green Oaks Apartment Complex, San Antonio, Texas",
+            //             StartDate_Office: "2022-07-15",
+            //             EndDate_Office: "2023-06-30",
+            //             WorkExperience: `My role involves coordinating all sales representatives, developing sales strategies and making sure the organization meets its quarterly and annual sales goals.
+            //                 Increased sales by an average of 12% each year by continually developing ways of reaching new potential customers
+            //                 Reduced employee turnover by 23% by implementing new training techniques and creating a motivating bonus structure`,
+            //             Project_title: "Online Medical Consultation Website",
+            //             Project_GithubLink: "https://github.com/JhoneDoe44343/Wellness-Wizard",
+            //             Project_DeployedLink: "https://heroic-JhoneDoe44343-467a9c.netlify.app/",
+            //             ProjectDescription: `Convenient way to connect with a Doctor and get medical advice, 
+            //                 Provide facilities like schedule an appointment with a doctor, access medical records and test results,
+            //                 User information is safe, secure and private
+            //                 Tech Stack used Html, Css, Bootstrap.`,
+            //             Degree: "Bachelor of Technology",
+            //             FieldOfStudy: "Computer Engineering",
+            //             collegeName: "Jean Monnet University,Saint-Etienne Cedex 2, France.",
+            //             collegeCity: "Saint-Etienne",
+            //             collegeState: "France",
+            //             StartDate_college: "2020-06-15",
+            //             EndDate_college: "2022-06-15",
+            //             Interests: ["Robotics", "Cyber Security", "Artificial Intelligence", "Web Development", "Android Development"],
+            //             Skills: ["HTML", "CSS", "Reactjs", "Nodejs", "Expressjs"],
+            //         });
+        } else if (condition == 1) {
+            console.log(props.flag)
             return useState({
-                FirstName: storedItems.FirstName,
-                LastName: storedItems.LastName,
-                City: storedItems.City,
-                Country: storedItems.Country,
-                PinCode: storedItems.PinCode,
-                Phone: storedItems.Phone,
-                Email: storedItems.Email,
-                ProfilePhoto: storedItems.ProfilePhoto,
-                Facebook: storedItems.Facebook,
-                LinkedIn: storedItems.LinkedIn,
-                Instagram: storedItems.Instagram,
-                Position: storedItems.Position,
-                CompanyName: storedItems.CompanyName,
-                Location: storedItems.Location,
-                StartDate_Office: storedItems.StartDate_Office,
-                EndDate_Office: storedItems.EndDate_Office,
-                WorkExperience: storedItems.WorkExperience,
-                Project_title: storedItems.Project_title,
-                Project_GithubLink: storedItems.Project_GithubLink,
-                Project_DeployedLink: storedItems.Project_DeployedLink,
-                ProjectDescription: storedItems.ProjectDescription,
-                Degree: storedItems.Degree,
-                FieldOfStudy: storedItems.FieldOfStudy,
-                collegeName: storedItems.collegeName,
-                collegeCity: storedItems.collegeCity,
-                collegeState: storedItems.collegeState,
-                StartDate_college: storedItems.StartDate_college,
-                EndDate_college: storedItems.EndDate_college,
-                Interests: storedItems.Interests,
-                Skills: storedItems.Skills,
+                FirstName: storedItems?.FirstName,
+                LastName: storedItems?.LastName,
+                City: storedItems?.City,
+                Country: storedItems?.Country,
+                PinCode: storedItems?.PinCode,
+                Phone: storedItems?.Phone,
+                Email: storedItems?.Email,
+                ProfilePhoto: storedItems?.ProfilePhoto,
+                Facebook: storedItems?.Facebook,
+                LinkedIn: storedItems?.LinkedIn,
+                Instagram: storedItems?.Instagram,
+                Position: storedItems?.Position,
+                CompanyName: storedItems?.CompanyName,
+                Location: storedItems?.Location,
+                StartDate_Office: storedItems?.StartDate_Office,
+                EndDate_Office: storedItems?.EndDate_Office,
+                WorkExperience: storedItems?.WorkExperience,
+                Project_title: storedItems?.Project_title,
+                Project_GithubLink: storedItems?.Project_GithubLink,
+                Project_DeployedLink: storedItems?.Project_DeployedLink,
+                ProjectDescription: storedItems?.ProjectDescription,
+                Degree: storedItems?.Degree,
+                FieldOfStudy: storedItems?.FieldOfStudy,
+                collegeName: storedItems?.collegeName,
+                collegeCity: storedItems?.collegeCity,
+                collegeState: storedItems?.collegeState,
+                StartDate_college: storedItems?.StartDate_college,
+                EndDate_college: storedItems?.EndDate_college,
+                Interests: storedItems?.Interests,
+                Skills: storedItems?.Skills,
             });
         }
-    };
-
+        //     else if (condition == 0 && cleardata==true) {
+        //         return useState({
+        //             FirstName: "",
+        //             LastName: "",
+        //             City: "",
+        //             Country: "",
+        //             PinCode: "",
+        //             Phone: "",
+        //             Email: "",
+        //             ProfilePhoto: "",
+        //             Facebook: "",
+        //             LinkedIn: "",
+        //             Instagram: "",
+        //             Position: "",
+        //             CompanyName: "",
+        //             Location: "",
+        //             StartDate_Office: "",
+        //             EndDate_Office: "",
+        //             WorkExperience: "",
+        //             Project_title: "",
+        //             Project_GithubLink: "",
+        //             Project_DeployedLink: "",
+        //             ProjectDescription: "",
+        //             Degree: "",
+        //             FieldOfStudy: "",
+        //             collegeName: "",
+        //             collegeCity: "",
+        //             collegeState: "",
+        //             StartDate_college: "",
+        //             EndDate_college: "",
+        //             Interests: ["", "", "", "", ""],
+        //             Skills: ["", "", "", "", ""],
+        //         });
+        // };
+    }
     const [userDetails, setUserDetails] = initializeState(props.flag);
 
     const [error, setError] = useState({
@@ -123,6 +157,40 @@ const Form = (props) => {
     const Selectedtemplate = JSON.parse(localStorage.getItem('SelectedTemplate'))
     window.localStorage.setItem('UserDetails', JSON.stringify(userDetails));
 
+    const handleErase = () => {
+        setUserDetails({
+            FirstName: "",
+            LastName: "",
+            City: "",
+            Country: "",
+            PinCode: "",
+            Phone: "",
+            Email: "",
+            ProfilePhoto: "",
+            Facebook: "",
+            LinkedIn: "",
+            Instagram: "",
+            Position: "",
+            CompanyName: "",
+            Location: "",
+            StartDate_Office: "",
+            EndDate_Office: "",
+            WorkExperience: "",
+            Project_title: "",
+            Project_GithubLink: "",
+            Project_DeployedLink: "",
+            ProjectDescription: "",
+            Degree: "",
+            FieldOfStudy: "",
+            collegeName: "",
+            collegeCity: "",
+            collegeState: "",
+            StartDate_college: "",
+            EndDate_college: "",
+            Interests: ["", "", "", "", ""],
+            Skills: ["", "", "", "", ""],
+        });
+    }
     //validate()-contains conditions for form validation and display errors. 
     const validate = (values) => {
         const { FirstName, LastName, Phone, Email, LinkedIn, Degree, FieldOfStudy, collegeName, collegeCity, collegeState } = values;
@@ -171,7 +239,7 @@ const Form = (props) => {
         }
     }
     //handleSave()-saves the userdetails in local storage and set "Error" state
-    const handleSave = (event) => {
+    const handleSave = () => {
         setError(validate(userDetails))
         window.localStorage.setItem('UserDetails', JSON.stringify(userDetails));
     }
@@ -514,35 +582,35 @@ const Form = (props) => {
                             placeholder="interest1"
                             radius="xs"
                             name="interest1"
-                            value={userDetails.Interests[0]}
+                            value={userDetails?.Interests?.[0] ?? ""}
                             onChange={handleFormInputs}
                         />
                         <TextInput
                             placeholder="interest2"
                             radius="xs"
                             name="interest2"
-                            value={userDetails.Interests[1]}
+                            value={userDetails?.Interests?.[1]??""}
                             onChange={handleFormInputs}
                         />
                         <TextInput
                             placeholder="interest3"
                             radius="xs"
                             name="interest3"
-                            value={userDetails.Interests[2]}
+                            value={userDetails?.Interests?.[2]??""}
                             onChange={handleFormInputs}
                         />
                         <TextInput
                             placeholder="interest4"
                             radius="xs"
                             name="interest4"
-                            value={userDetails.Interests[3]}
+                            value={userDetails?.Interests?.[3]??""}
                             onChange={handleFormInputs}
                         />
                         <TextInput
                             placeholder="interest5"
                             radius="xs"
                             name="interest5"
-                            value={userDetails.Interests[4]}
+                            value={userDetails?.Interests?.[4]??""}
                             onChange={handleFormInputs}
                         />
                     </div>
@@ -552,41 +620,42 @@ const Form = (props) => {
                             placeholder="Skills1"
                             radius="xs"
                             name="Skills1"
-                            value={userDetails.Skills[0]}
+                            value={userDetails?.Skills?.[0]??""}
                             onChange={handleFormInputs}
                         />
                         <TextInput
                             placeholder="Skills2"
                             radius="xs"
                             name="Skills2"
-                            value={userDetails.Skills[1]}
+                            value={userDetails?.Skills?.[1]??""}
                             onChange={handleFormInputs}
                         />
                         <TextInput
                             placeholder="Skills3"
                             radius="xs"
                             name="Skills3"
-                            value={userDetails.Skills[2]}
+                            value={userDetails?.Skills?.[2]??""}
                             onChange={handleFormInputs}
                         />
                         <TextInput
                             placeholder="Skills4"
                             radius="xs"
                             name="Skills4"
-                            value={userDetails.Skills[3]}
+                            value={userDetails?.Skills?.[3]??""}
                             onChange={handleFormInputs}
                         />
                         <TextInput
                             placeholder="Skills5"
                             radius="xs"
                             name="Skills5"
-                            value={userDetails.Skills[4]}
+                            value={userDetails?.Skills?.[4]??""}
                             onChange={handleFormInputs}
                         />
                     </div>
                     <div className="form-controll-buttons">
                         <button id='SaveButton' onClick={handleSave}>Save</button>
                         <button id='PreviewButton' onClick={handlePreview}>Preview</button>
+                        <button id='EraseButton' onClick={handleErase}>Erase</button>
                     </div>
                 </div>
             </div>
@@ -594,3 +663,4 @@ const Form = (props) => {
     )
 }
 export default Form;
+

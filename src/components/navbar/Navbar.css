@@ -1,5 +1,5 @@
 .navbar {
-  background-color:#01636f;
+  background-color: #01636f;
   display: flex;
   justify-content: center;
 }
@@ -12,6 +12,7 @@
   align-items: center;
   padding: 10px;
   margin: 8px;
+  position: relative;
 }
 
 .logo-title {
@@ -23,10 +24,13 @@
 
 .navbar-items-right {
   display: flex;
+  align-items: center;
   gap: 20px;
   font-size: 18px;
   text-transform: capitalize;
   font-family: sans-serif;
+  margin-top: 5px;
+  margin-right: -680px;
 }
 
 .navbar-items-right span {
@@ -60,6 +64,53 @@
   font-size: 1.6rem;
 }
 
+.profile-details {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.profile-details:hover,
+#logout-btn:hover {
+  cursor: pointer;
+}
+
+.profile-details div:nth-child(2) {
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+.profile-username {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  width: 35px;
+  background-color: #f56600;
+  border-radius: 50%;
+  color: #01636f;
+  font-size: 24px;
+}
+
+.profile-dropdown {
+  position: absolute;
+  right: 95px;
+  top: 67px;
+  width: 150px;
+  background-color: #f56600;
+  padding: 5px 10px;
+  z-index: 1;
+}
+
+.profile-dropdown:hover {
+  background-color: #ec7f31fe;
+}
+
+#logout-btn {
+  display: inline-block;
+  width: 100%;
+}
+
 /* ********************************************** */
 @media (min-width: 1024px) and (max-width: 1366px) {
   .navbar-container {
@@ -67,10 +118,15 @@
     margin: 4px;
   }
 
+  .profile-dropdown {
+    right: 50px;
+    top: 62px;
+  }
+
   .navbar-items-right {
     font-size: 22px;
     gap: 20px;
-    margin-right: 20px;
+    margin-right: -200px;
   }
 }
 
@@ -86,8 +142,8 @@
 
   .navbar-items-right {
     position: absolute;
-    top: 62px;
-    right: 0;
+    top: 52px;
+    right: 92%;
     height: 10rem;
     width: 10rem;
     display: flex;
@@ -107,9 +163,14 @@
     margin-top: 10px;
   }
 
-  .responsive_nav {
-    visibility: hidden;
+  .profile-dropdown {
+    right: 50px;
+    top: 62px;
+  }
 
+  .responsive_nav {
+    /* visibility: hidden; */
+    display: none;
   }
 
   .nav-close-btn {
@@ -127,10 +188,71 @@
   }
 
   .logo-title {
-    font-size: 30px;
+    font-size: 24px;
+  }
+
+  .navbar-items-right {
+    position: absolute;
+    top: 52px;
+    right: 186%;
+    height: 10rem;
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-right: 15px;
+    justify-content: center;
+    gap: 1.2rem;
+    background-color: rgb(128, 128, 128);
+    border-radius: 0px 0px 0px 100px;
+    z-index: 2;
+  }
+
+  .profile-details {
+    margin-right: 20px;
+  }
+
+  .profile-dropdown {
+    right: 50px;
+    top: 59px;
   }
 
   .responsive_nav {
-    visibility: hidden;
+    display: none;
+  }
+}
+@media (max-width: 320px) {
+  .logo-title {
+    font-size: 18px;
+  }
+
+    .navbar-items-right {
+    position: absolute;
+    top: 52px;
+    right: 218%;
+    height: 10rem;
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-right: 15px;
+    justify-content: center;
+    gap: 1.2rem;
+    background-color: rgb(128, 128, 128);
+    border-radius: 0px 0px 0px 100px;
+    z-index: 2;
+  }
+
+  .profile-details {
+    margin-right: 20px;
+  }
+
+  .profile-dropdown {
+    right: 50px;
+    top: 59px;
+  }
+
+  .responsive_nav {
+    display: none;
   }
 }

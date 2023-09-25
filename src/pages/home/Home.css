@@ -256,54 +256,54 @@
         flex-direction: column;
         text-align: center;
     }
-
+    
     .home-featured1-right img {
         width: 590px;
         height: 480px;
     }
-
+    
     .home-featured1-right::before {
         top: 525px;
         width: 590px;
         height: 480px;
     }
-
+    
     .home-brand-featured {
         width: 100%;
         text-align: center;
         flex-direction: column;
         gap: 20px;
     }
-
+    
     .home-brand-featured img {
         width: 100%;
     }
-
+    
     .home-featured2-middle h3 {
         line-height: 40px;
     }
-
+    
     .featured2-button {
         width: 350px;
     }
-
+    
     .home-featured2-container {
         gap: 50px;
         text-align: center;
         flex-direction: column;
     }
-
+    
     .home-featured3-container {
         width: 100%;
         flex-direction: column;
         padding: 20px;
     }
-
+    
     .home-featured3-right img {
         height: 530px;
         width: 599px;
     }
-
+    
     .featured3-button {
         width: 100%;
     }
@@ -317,72 +317,80 @@
         text-align: center;
         width: 100%;
     }
-
+    
     .home-featured1-left h1 {
         font-size: 2rem;
         line-height: 3rem;
     }
-
+    
     .home-featured1-left button {
         width: 100%;
     }
-
+    
     .home-featured1-right img {
         width: 85%;
         height: 300px;
         padding: 10px;
     }
-
+    
     .home-featured1-right::before {
         top: 444px;
         left: 33px;
         width: 82%;
         height: 300px;
     }
-
+    
     .home-brand-featured {
         width: 100%;
         flex-wrap: wrap;
         text-align: center;
         gap: 20px;
     }
-
+    
     .home-brand-featured img {
         width: 100%;
     }
-
+    
     .home-featured2-middle h3 {
         line-height: 40px;
     }
-
+    
     .featured2-button {
         width: 100%;
         height: auto;
     }
-
+    
     .home-featured2-container {
         gap: 30px;
         text-align: center;
         width: 100%;
         flex-direction: column;
     }
-
+    
     .home-featured3-container {
         width: 100%;
         padding: 10px;
         flex-direction: column;
     }
-
+    
     .home-featured3 h1 {
         text-align: center;
     }
-
+    
     .home-featured3-right img {
         height: 320px;
         width: 360px;
     }
-
+    
     .featured3-button {
         width: 100%;
     }
+}
+@media (max-width: 320px){
+    .home-featured1-right::before {
+        top: 515px;
+        width: 240px;
+        height: 290px;
+    }
+
 }
