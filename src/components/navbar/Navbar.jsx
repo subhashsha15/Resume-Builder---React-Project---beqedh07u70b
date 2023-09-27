@@ -7,11 +7,10 @@ import { useNavigate } from 'react-router-dom';
 import { auth, provider } from "../../components/firebase";
 import { signOut } from "firebase/auth";
 const Navbar = () => {
-    const navRef = useRef();
     const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-    const [isVisible, setisVisible] = useState(true);
+    const [isVisible, setisVisible] = useState(false);
     const [userName, setUserName] = useState(localStorage.getItem('username'));
-    const email=localStorage.getItem('email');
+    const email = localStorage.getItem('email');
     const navigate = useNavigate();
     const navLinkStyles = ({ isActive }) => {
         return {
@@ -21,11 +20,9 @@ const Navbar = () => {
         };
     };
     const showNavbar = () => {
-        navRef.current.classList.toggle("responsive_nav");
-        setisVisible(!isVisible);
+        setisVisible(prev => !prev);
     }
     const handleLogout = () => {
-        setIsDropDownOpen(false);
         localStorage.clear();
         signOut(auth)
             .then(() => {
@@ -38,6 +35,32 @@ const Navbar = () => {
                 console.error("Error signing out:", error);
             });
     }
+
+    const handleProfile = () => {
+        setIsDropDownOpen(prev => !prev);
+        setisVisible(false);
+    }
+    useEffect(() => {
+        const handleClick = () => {
+            if (isDropDownOpen) {
+                setIsDropDownOpen(false);
+            }
+            if (isVisible) {
+                setisVisible(false);
+                // showNavbar();
+            }
+        };
+
+        // Add event listener when the component mounts
+        if (isDropDownOpen || isVisible) {
+            window.addEventListener('click', handleClick);
+        }
+
+        // Clean up the event listener when the component unmounts
+        return () => {
+            window.removeEventListener('click', handleClick);
+        };
+    }, [isDropDownOpen, isVisible]);
     return (
         <>
             <div className="navbar">
@@ -47,20 +70,22 @@ const Navbar = () => {
                             <span className='logo-title'>Portfolio Builder</span>
                         </Link>
                     </div>
-                    <div className="navbar-items-right" ref={navRef}>
-                        <NavLink to="/home" style={navLinkStyles}>
-                            <span onClick={showNavbar}>Home</span>
-                        </NavLink>
-                        <NavLink to="/templates" style={navLinkStyles}>
-                            <span onClick={showNavbar}>Templates</span>
-                        </NavLink>
-                        <NavLink to="/contactus" style={navLinkStyles}>
-                            <span onClick={showNavbar}>Contact Us</span>
-                        </NavLink>
-                    </div>
-                    <div className='profile-details' onClick={() => setIsDropDownOpen(!isDropDownOpen)}>
-                        <div className='profile-username'>{userName?userName?.charAt(0).toUpperCase():email?.charAt(0).toUpperCase()}</div>
-                        <div><MdArrowDropDown /></div>
+                    <div className='navbar-items-right-container'>
+                        <div className={!isVisible?"navbar-items-right responsive_nav":"navbar-items-right"}>
+                            <NavLink to="/home" style={navLinkStyles}>
+                                <span onClick={showNavbar}>Home</span>
+                            </NavLink>
+                            <NavLink to="/templates" style={navLinkStyles}>
+                                <span onClick={showNavbar}>Templates</span>
+                            </NavLink>
+                            <NavLink to="/contactus" style={navLinkStyles}>
+                                <span onClick={showNavbar}>Contact Us</span>
+                            </NavLink>
+                        </div>
+                        <div className='profile-details' onClick={handleProfile}>
+                            <div className='profile-username'>{userName ? userName?.charAt(0).toUpperCase() : email?.charAt(0).toUpperCase()}</div>
+                            <div><MdArrowDropDown /></div>
+                        </div>
                     </div>
                 </div>
                 {
@@ -73,11 +98,11 @@ const Navbar = () => {
                     )
                 }
                 {
-                    isVisible ? <button className="nav-btn nav-close-btn" onClick={showNavbar}>
+                    isVisible ? <button className="nav-btn " onClick={showNavbar}>
                         <FaTimes />
                     </button>
                         :
-                        <button className="nav-btn" onClick={showNavbar}>
+                        <button className="nav-btn nav-close-btn" onClick={showNavbar}>
                             <FaBars />
                         </button>
                 }
